@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Archivo', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* NavBar */
+
+.navbar {
+    background-color: white;
+    padding: 5px 50px;
+    position: sticky;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logo {
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.logo p {
+    font-size: 20px;
+}
+
+.logo p span {
+    color: #A8DADC;
+    font-weight: 500;
+}
+
+.link-wrap {
+
+}
