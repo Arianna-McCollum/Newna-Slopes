@@ -1,45 +1,41 @@
-const { gql } = require('apollo-server-express');
+const { AuthenticationError } = require('apollo-server-express');
+const { signToken } = require('../utils/auth');
+const { User, Product, Order } = require('../models');
 
-const typeDefs = gql`
-    type User {
-        _id: ID
-        firstName: String
-        lastName: String
-        email: String
-        orders: [Order]
+const resolvers = {
+    Query: {
+        users: async () => {
+            return User.find()
+              .select('-__v -password')
+              .populate('thoughts')
+              .populate('friends');
+          }
+    },
+
+    Mutation: {
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
+            const token = signToken(user);
+      
+            return { token, user };
+          },
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+      
+            if (!user) {
+              throw new AuthenticationError('Incorrect credentials');
+            }
+      
+            const correctPw = await user.isCorrectPassword(password);
+      
+            if (!correctPw) {
+              throw new AuthenticationError('Incorrect credentials');
+            }
+      
+            const token = signToken(user);
+            return { token, user };
+          }
     }
+}
 
-    type Product {
-        _id: ID
-        name: String
-        description: String
-        image: String
-        quantity: Int
-        price: Float
-        category: Category
-    }
-
-    type Category {
-        _id: ID
-        name: String
-    }
-
-    type Order {
-        _id: ID
-        purchaseDate: String
-        products: [Product]
-    }
-
-    type Auth {
-        token: ID
-        user: User
-    }
-
-    type Query {
-    }
-
-    type Mutation {
-    }
-`;
-
-module.exports = typeDefs;
+module.exports = resolvers;
