@@ -25,7 +25,7 @@ function Nav() {
                         <Link className="center" to="/contact">Contact</Link>
                     </li>
                     
-                    <button>Shop</button>
+                    <button className="btn">Shop</button>
                 </ul>
             </div>
 

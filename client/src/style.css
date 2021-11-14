@@ -1,3 +1,13 @@
+:root{
+    --primary-color: #457B9D;
+    --secondary-color: #A8DADC;
+    --tertiary-color: #E63946;
+    --accent-color: #F1FAEE;
+    --white: white;
+    --black: black;
+}
+
+
 * {
     padding: 0;
     margin: 0;
@@ -9,25 +19,36 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    background-color: var(--black);
+}
+
 /* NavBar */
 
 .navbar {
-    background-color: white;
+    background-color: var(--white);
     padding: 5px 50px;
     position: sticky;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
-    display: flex;
     width: 100%;
+}
+
+.nav-wrap {
     justify-content: space-between;
+    display: flex;
+    padding: 0 20px;
+    height: auto;
+
 }
 
 .logo {
-    background-color: red;
+    background-color: var(--white);
     display: flex;
     align-items: center;
+    width: 30%;
     justify-content: center;
 }
 
@@ -41,10 +62,76 @@ html {
 }
 
 .logo p span {
-    color: #A8DADC;
+    color: var(--secondary-color);
     font-weight: 500;
 }
 
 .link-wrap {
+    display: flex;
+    align-items: center;
+    width: 45%;
+    justify-content: center;
+    background-color: var(--white);
+}
 
+.link-wrap ul {
+    list-style: none;
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    width: 100%;
+    align-items: center;
+}
+
+.link-wrap ul li a {
+    font-size: 18px;
+    line-height: 1.5;
+    text-decoration: none;
+    color: var(--black);
+    padding: 7px 5px;
+    transition: .3s;
+    position: relative;
+}
+
+.link-wrap ul li a::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    background-color: var(--black);
+    bottom: 0;
+    left: 0;
+}
+
+.link-wrap ul li a:hover::before {
+    width: 100%;
+    transition: .5s ease-in-out;
+}
+
+.link-wrap ul li a.center::before {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.link-wrap ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.btn {
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    width: 20%;
+    background-color: var(--tertiary-color);
+    color: var(--accent-color);
+    font-size: 22px;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.btn:hover {
+    background-color: var(--black);
+    color: var(--secondary-color);
+    transition: .3s ease-in;
 }
