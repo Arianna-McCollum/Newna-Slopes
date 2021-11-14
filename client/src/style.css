@@ -12,15 +12,21 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Archivo', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-body {
+/* body {
     background-color: var(--black);
+} */
+
+.btn {
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* NavBar */
@@ -48,7 +54,7 @@ body {
     background-color: var(--white);
     display: flex;
     align-items: center;
-    width: 30%;
+    width: 20%;
     justify-content: center;
 }
 
@@ -62,7 +68,7 @@ body {
 }
 
 .logo p span {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     font-weight: 500;
 }
 
@@ -118,20 +124,91 @@ body {
     color: var(--secondary-color);
 }
 
-.btn {
-    border: none;
-    text-decoration: none;
-    cursor: pointer;
+.link-wrap button {
     width: 20%;
-    background-color: var(--tertiary-color);
+    background-color: var(--primary-color);
     color: var(--accent-color);
     font-size: 22px;
     padding: 10px;
     border-radius: 7px;
 }
 
-.btn:hover {
-    background-color: var(--black);
-    color: var(--secondary-color);
+.hero button:hover, .link-wrap button:hover {
+    background-color: var(--secondary-color);
+    color: var(--black);
     transition: .3s ease-in;
 }
+
+/* Main page */
+
+.hero{
+    padding-top: 70px;
+    height: 800px;
+}
+
+.hero-container-right {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 100px;
+    height: 100%;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 150px;
+}
+
+.hero::before {
+    content: "";
+    background-image: linear-gradient(
+        235deg,rgba(0,0,0,0) 60%, var(--black) 100%), url(./images/snowboardbg.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .75;
+}
+
+.hero img {
+    width: 200px;
+    height: 200px;
+}
+
+.hero h1, .hero p, .hero button, .hero img {
+    position: relative;
+}
+
+.hero h1 {
+    color: var(--black);;  
+    font-size: 80px;
+    line-height: 0.9;
+    text-align: center;
+    font-family: 'Rock Salt', cursive;
+  }
+
+  .hero p {
+      font-size: 40px;
+      line-height: .9;
+      text-align: center;
+      padding: 20px;
+  }
+
+  .hero p span {
+      color: var(--tertiary-color);
+      font-weight: 800;
+  }
+
+  .hero button {
+    width: 50%;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+    font-size: 22px;
+    padding: 10px;
+    border-radius: 7px;
+  }
