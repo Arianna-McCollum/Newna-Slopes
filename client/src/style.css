@@ -7,6 +7,7 @@
     --black: black;
 }
 
+/* Main Page */
 
 * {
     padding: 0;
@@ -20,7 +21,7 @@ html {
 }
 
 /* body {
-    background-color: var(--black);
+    background-color: var(--white);
 } */
 
 .btn {
@@ -139,7 +140,9 @@ html {
     transition: .3s ease-in;
 }
 
-/* Main page */
+/* End Navbar */
+
+/* Hero */
 
 .hero{
     padding-top: 70px;
@@ -212,3 +215,5 @@ html {
     padding: 10px;
     border-radius: 7px;
   }
+
+  /* End Hero */
