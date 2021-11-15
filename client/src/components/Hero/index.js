@@ -11,7 +11,8 @@ function Hero() {
               <h1 className="hero-header" >Newna Bros. </h1>
               <p>Skis, Boards, & <span>More</span></p>
               <button className="btn">Visit Our Online Shop!</button>
-            </div>  
+              <a href="#" class="scroll-down" address="true"></a>
+            </div>
         </div>
           <svg id="snowPile1" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
           <path d="M-5 100 Q 0 20 5 100 Z
