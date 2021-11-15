@@ -32,7 +32,7 @@ html {
 
 /* NavBar */
 
-.navbar {
+.navbar-container {
     background-color: var(--white);
     padding: 5px 50px;
     position: sticky;
@@ -147,6 +147,7 @@ html {
 .hero{
     padding-top: 70px;
     height: 800px;
+    margin-bottom: 20%;
 }
 
 .hero-container-right {
@@ -217,7 +218,54 @@ html {
   }
 
   /* End Hero */
+/* Our Story Section */
+.section-OurStory {
+    position: relative;
+    padding: 150px;
+  }
+  
+  .section-OurStory:before {
+    content: '';
+    background: url(/src/images/bg.jpg) no-repeat fixed center / cover;
+    width: 100%;
+    height: 400px; 
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  .overlay:after {
+    content: '';
+    width: 100%;
+    height: 400px; 
+    position: absolute;
+    background-color: rgba(255,255,255,0.5);
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
 
+  .section-OurStory .container {
+    padding: 50px;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0px 0px 40px 8px rgba(33,33,33, 0.4);
+    z-index: 1;
+  }
+
+  .story-title {
+    font-family: 'Rock Salt', cursive;
+    margin-bottom: 50px;
+  }
+  
+  .story p {
+    font-size: 20px;
+  }
+
+  #OurStory {
+      margin-bottom: 20%;
+  }
+  /* End Our Story */
   /* Contact */
 .contact{
 	position: relative;
@@ -271,7 +319,7 @@ html {
 	content: '';
     position: absolute;
     left: 50%;
-    bottom: 0;
+    margin-top: 45px;
     transform: translateX(-50%);
     height: 3px;
     width: 200px;
