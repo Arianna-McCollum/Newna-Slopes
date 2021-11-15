@@ -9,7 +9,6 @@ function OurStory() {
           <br></br>
           <br></br>
           <span>Newna Bros</span>  is now the go-to equipment store with 6 different locations servicing over 20 trails within Newna Slopes - the busiest ski attraction in Utah! Our mission is the same as its always been : </p>
-          
         </div>
     </section>
     
