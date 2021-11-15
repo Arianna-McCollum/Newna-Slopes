@@ -53,7 +53,6 @@ html {
 }
 
 .logo {
-    background-color: var(--white);
     display: flex;
     align-items: center;
     width: 20%;
@@ -79,12 +78,10 @@ html {
     align-items: center;
     width: 45%;
     justify-content: center;
-    background-color: var(--white);
 }
 
 .link-wrap ul {
     list-style: none;
-    background-color: var(--white);
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
