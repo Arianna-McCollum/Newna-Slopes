@@ -218,6 +218,98 @@ html {
 
   /* End Hero */
 
+  /* Our Story */
+
+  .ourstory {
+      padding: 30px 300px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .ourstory span {
+      color: var(--primary-color);
+  }
+
+  .ourstory h2 {
+      font-size: 50px;
+      font-family: 'Rock Salt', cursive;
+      position: relative;
+  }
+
+  .ourstory h2:after{
+	content: '';
+    position: absolute;
+    left: 22%;
+    bottom: 15%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 300px;
+    border-radius: 2px;
+    background-color: var(--tertiary-color);
+}
+
+  .ourstory p {
+      font-size: 20px;
+  }
+
+  /* End Our Story */
+
+  /* Quote section */
+
+  .quote {
+    position: relative;
+    padding: 150px;
+    margin: 60px 0;
+  }
+  
+  .quote:before {
+    content: '';
+    background: url(/src/images/bg.jpg) no-repeat fixed center / cover;
+    width: 100%;
+    height: 400px; 
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: .5;
+  }
+  
+  .quote:after {
+    content: '';
+    width: 100%;
+    height: 400px; 
+    position: absolute;
+    background-color: rgba(255,255,255,0.5);
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  .quote-container {
+    padding: 50px;
+    position: relative;
+    background-color: var(--white);
+    box-shadow: 0px 0px 40px 8px rgba(33,33,33, 0.4);
+    z-index: 1;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(
+    45deg,rgba(0,0,0,0) 20%, var(--primary-color) 200%);
+  }
+
+  .quote-container p {
+      font-family: 'Rock Salt', cursive;
+      font-size: 30px;
+  }
+
+  .quote-container p span {
+      float: right;
+  }
+
+  /* End Quote section */
+
   /* Contact */
 .contact{
 	position: relative;
@@ -236,7 +328,7 @@ html {
 	height: 100%;
 	left: 0;
 	top: 0;
-	background: url("./images/contactbg.jpg") no-repeat center;
+	background: url("./images/snowboardbg.jpg") no-repeat center;
 	background-size: cover;
 	filter: blur(20px);
 	z-index: -1;
