@@ -42,7 +42,7 @@ html {
     -webkit-transition: all .5s ease-in 3s;
     transition: all .5s ease-in 3s;
   }
-  
+  /*Scroll btn template from https://codepen.io/tr13ze/pen/VjLLgJ  */
 .scroll-down {
     position: absolute;
     bottom: 60px;
