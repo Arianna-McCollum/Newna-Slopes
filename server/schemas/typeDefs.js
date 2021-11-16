@@ -12,10 +12,9 @@ const typeDefs = gql`
     type Product {
         _id: ID
         name: String
-        description: String
-        image: String
-        quantity: Int
         price: Float
+        description: String
+        inStockQuantity: Int
         category: Category
     }
 
@@ -26,8 +25,8 @@ const typeDefs = gql`
 
     type Order {
         _id: ID
-        purchaseDate: String
-        products: [Product]
+        date: String
+        items: [Product]
     }
 
     type Auth {
