@@ -13,6 +13,7 @@ function Nav() {
 
             <div className="link-wrap">
                 <ul>
+                    
                     <li>
                         <Link className="center" to="/">Home</Link>
                     </li>

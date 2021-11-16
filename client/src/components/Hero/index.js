@@ -11,9 +11,11 @@ function Hero() {
               <h1 className="hero-header" >Newna Bros. </h1>
               <p>Skis, Boards, & <span>More</span></p>
               <button className="btn">Visit Our Online Shop!</button>
+              <a href="#" class="scroll-down" address="true"></a>
             </div>
         </div>
     </div>
+    
     </section>
     
   );
