@@ -54,7 +54,7 @@ html {
   .scroll-down:before {
       position: absolute;
       top: calc(50% - 8px);
-      left: calc(50% - 6.5px);
+      left: calc(50% - 6.8px);
       transform: rotate(-45deg);
       display: block;
       width: 12px;
