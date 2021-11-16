@@ -3,7 +3,7 @@ import logo from '../../images/logos/logo.png'
 
 function Hero() {
   return (
-    <section>
+    <section id="/">
     <div className="hero">
         <div className="hero-container-right">
             <div className="hero-container">
