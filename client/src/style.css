@@ -53,7 +53,6 @@ html {
 }
 
 .logo {
-    background-color: var(--white);
     display: flex;
     align-items: center;
     width: 20%;
@@ -79,12 +78,10 @@ html {
     align-items: center;
     width: 45%;
     justify-content: center;
-    background-color: var(--white);
 }
 
 .link-wrap ul {
     list-style: none;
-    background-color: var(--white);
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
@@ -172,6 +169,7 @@ html {
     background-position: center;
     background-size: cover;
     position: absolute;
+    height: 800px;
     top: 0;
     right: 0;
     bottom: 0;
@@ -226,6 +224,7 @@ html {
       text-align: left;
       display: flex;
       flex-direction: column;
+      position: relative;
   }
 
   .ourstory span {
@@ -235,20 +234,20 @@ html {
   .ourstory h2 {
       font-size: 50px;
       font-family: 'Rock Salt', cursive;
-      position: relative;
   }
 
-  .ourstory h2:after{
+  /* .ourstory h2::after {
 	content: '';
     position: absolute;
-    left: 22%;
-    bottom: 15%;
-    transform: translateX(-50%);
+    display: block;
+    top: 0;
+    left: 0;
+    transform: translateX(110%);
     height: 3px;
     width: 300px;
     border-radius: 2px;
     background-color: var(--tertiary-color);
-}
+} */
 
   .ourstory p {
       font-size: 20px;
