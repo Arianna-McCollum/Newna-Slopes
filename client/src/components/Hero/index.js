@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../images/logos/logo.png'
+import { Link } from "react-scroll";
 
 function Hero() {
   return (
@@ -11,7 +12,7 @@ function Hero() {
               <h1 className="hero-header" >Newna Bros. </h1>
               <p>Skis, Boards, & <span>More</span></p>
               <button className="btn">Visit Our Online Shop!</button>
-              <a href="#" class="scroll-down" address="true"></a>
+              <Link to="our-story" className="scroll-down"></Link>
             </div>
         </div>
     </div>
