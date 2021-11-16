@@ -5,11 +5,14 @@ const { User, Product, Order } = require('../models');
 const resolvers = {
     Query: {
         users: async () => {
-            return User.find()
-              .select('-__v -password')
-              .populate('thoughts')
-              .populate('friends');
-          }
+          return User.find()
+        },
+        products: async () => {
+          return Product.find()
+        },
+        orders: async () => {
+          return Order.find()
+        }
     },
 
     Mutation: {

@@ -36,9 +36,14 @@ const typeDefs = gql`
     }
 
     type Query {
+        users: [User]
+        products: [Product]
+        orders: [Order]
     }
 
     type Mutation {
+        addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+        login(email: String!, password: String!): Auth
     }
 `;
 

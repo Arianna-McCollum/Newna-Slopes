@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const {Schema} = mongoose;
 const Order = require('./Order');
-const bycryt = require('bcrypt')
+const bcrypt = require('bcrypt')
 
 const userSchema = new Schema ({
     firstName: {
