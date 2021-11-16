@@ -23,17 +23,7 @@ html {
 /* body {
     background-color: var(--white);
 } */
-#snowPile{
-    margin-top: 0.1%;
-    position: relative;
-    z-index: 1;
-}
-#snowPile path {
-    fill: #ffffff;
-    bottom: -10px;
-    overflow: hidden;
-    stroke: #ffffff;
-}
+
 
 /*Scroll btn template from https://codepen.io/tr13ze/pen/VjLLgJ  */
 .scroll-down {
