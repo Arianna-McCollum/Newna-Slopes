@@ -12,6 +12,7 @@ function App() {
       <Nav />
       <Routes>
         <Route exact path="/" element={<Home />}></Route>
+        
       </Routes>
       <Footer />
     </div>
