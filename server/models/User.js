@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const {Schema} = mongoose;
 const Order = require('./Order');
-// const bycryt = require('bcrypt')
+const bcrypt = require('bcrypt')
 
 const userSchema = new Schema ({
     firstName: {
@@ -28,6 +28,14 @@ const userSchema = new Schema ({
     },
     orders: [Order.schema]
 })
+
+// pre-save middleware that hashes password with bcrypt
+userSchema.pre('save', async function(next) {
+    if( this.isNew || this.isModified('password')) {
+        const saltRounds = 10;
+        this.password = await bcrypt.hash(this.password, saltRounds)
+    }
+});
 
 const User = mongoose.model('User', userSchema);
 
