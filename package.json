@@ -23,5 +23,8 @@
   "homepage": "https://github.com/Electrolion/Newna-Slopes#readme",
   "devDependencies": {
     "concurrently": "^6.4.0"
+  },
+  "dependencies": {
+    "react-scroll": "^1.8.4"
   }
 }
