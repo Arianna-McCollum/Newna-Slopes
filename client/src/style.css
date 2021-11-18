@@ -25,9 +25,75 @@ html {
 } */
 
 
+/*Scroll btn template from https://codepen.io/tr13ze/pen/VjLLgJ  */
+.scroll-down {
+    opacity: 1;
+    -webkit-transition: all .5s ease-in 3s;
+    transition: all .5s ease-in 3s;
+  }
+
+.scroll-down {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    margin-left: -16px;
+    display: block;
+    width: 38px;
+    height: 38px;
+    border: 2.5px solid var(--tertiary-color);
+    background-size: 14px auto;
+    border-radius: 50%;
+    z-index: 2;
+    -webkit-animation: bounce 2s infinite 2s;
+    animation: bounce 2s infinite 2s;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    transform: scale(1)
+  }
+ 
+  .scroll-down:before {
+      position: absolute;
+      top: calc(50% - 9px);
+      left: calc(50% - 6.8px);
+      transform: rotate(-45deg);
+      display: block;
+      width: 13px;
+      height: 13px;
+      content: "";
+      border: 2px solid var(--tertiary-color);
+      border-width: 0px 0 2px 2px;
+  }
+ 
+  @keyframes bounce {
+    0%,
+    100%,
+    20%,
+    50%,
+    80% {
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      transform: translateY(0);
+    }
+    40% {
+      -webkit-transform: translateY(-10px);
+      -ms-transform: translateY(-10px);
+      transform: translateY(-10px);
+    }
+    60% {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
+  }
+
+
 .btn {
     border: none;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.linkto, .center {
     cursor: pointer;
 }
 
@@ -144,7 +210,7 @@ html {
 
 .hero{
     padding-top: 70px;
-    height: 800px;
+    height: 100vh;
 }
 
 .hero-container-right {
@@ -159,7 +225,7 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 150px;
+    padding-bottom: 90px;
 }
 
 .hero::before {
@@ -169,6 +235,7 @@ html {
     background-position: center;
     background-size: cover;
     position: absolute;
+    height: 100vh;
     top: 0;
     right: 0;
     bottom: 0;
@@ -191,6 +258,7 @@ html {
     line-height: 0.9;
     text-align: center;
     font-family: 'Rock Salt', cursive;
+    padding-bottom: 10px;
   }
 
   .hero p {
@@ -223,6 +291,7 @@ html {
       text-align: left;
       display: flex;
       flex-direction: column;
+      position: relative;
   }
 
   .ourstory span {
@@ -232,20 +301,20 @@ html {
   .ourstory h2 {
       font-size: 50px;
       font-family: 'Rock Salt', cursive;
-      position: relative;
   }
 
-  .ourstory h2:after{
+  /* .ourstory h2::after {
 	content: '';
     position: absolute;
-    left: 22%;
-    bottom: 15%;
-    transform: translateX(-50%);
+    display: block;
+    top: 0;
+    left: 0;
+    transform: translateX(110%);
     height: 3px;
     width: 300px;
     border-radius: 2px;
     background-color: var(--tertiary-color);
-}
+} */
 
   .ourstory p {
       font-size: 20px;
@@ -437,6 +506,8 @@ html {
 .footer {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1%;
+    margin-top: 1%;
 }
 
 .icons {
@@ -465,11 +536,199 @@ html {
 
 /* Media Queries */
 
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+    body, html {
+        overflow-x: hidden;
+    }
+
+    .navbar {
+        padding: 20px 10px;
+    }
+
+    .nav-wrap {
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 30%;
+    }
+
+    .logo p {
+        padding: 0 10px;
+        font-size: 22px;
+    }
+
+    .link-wrap {
+        width: 70%;
+        justify-content: space-around;
+    }
+
+    .link-wrap ul li {
+        padding: 5px 10px;
+    }
+
+    .hero-container-right {
+        padding: 0 50px;
+        justify-content: center;
+    }
+
+    .ourstory {
+        padding: 90px 100px;
+        text-align: center;
+    }
+
+    .quote {
+        padding: 70px 50px;
+        padding-top: 100px;
+        padding-bottom: 150px;
+    }
+
+    .contact {
+        padding: 20px 45px;
+    }
+
+    .contact-box .left {
+        height: 300px;
+        background-position: top;
+    }
+
+    .icons {
+        width: 100%;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+
+    .icons span {
+        padding: 10px 20px;
+    }
+
+    .icons a {
+        padding: 10px 20px;
+    }
+    
+
+}
+
 @media screen and (max-width: 880px){
-	.contact-box{
-		grid-template-columns: 1fr;
-	}
-	.left{
-		height: 200px;
-	}
+    .contact-box{
+        grid-template-columns: 1fr;
+    }
+    .left{
+        height: 200px;
+    }
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px){
+    body, html {
+        overflow-x: hidden;
+    }
+
+    .navbar {
+        padding: 20px 0;
+        position: absolute;
+    }
+
+    .nav-wrap {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    .logo {
+        width: 80%;
+    }
+
+    .link-wrap {
+        width: 100%;
+    }
+
+    .link-wrap ul {
+        justify-content: space-around;
+    }
+
+    .link-wrap ul, .link-wrap ul li {
+        padding: 0;
+    }
+
+    .hero img {
+        width: 125px;
+        height: 125px;
+    }
+
+    .hero-container-right {
+        padding: 0;
+    }
+
+    .hero-container {
+        padding: 200px 0;
+        justify-content: space-evenly;
+    }
+
+    .hero-container h1 {
+        font-size: 35px;
+        padding: 0;
+        margin: 10px 0;
+    }
+
+    .hero-container p {
+        padding: 0;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .hero-container button {
+        width: 80%;
+        font-size: 18px;
+    }
+
+    .ourstory {
+        padding: 20px 20px;
+        padding-bottom: 0;
+    }
+
+    .ourstory h2 {
+        font-size: 37px;
+    }
+
+    .ourstory p {
+        font-size: 18px;
+    }
+
+    .quote {
+        padding: 70px 20px;
+    }
+
+    .quote-container {
+        padding: 0;
+        top: 100px;
+    }
+
+    .quote-container p {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .contact {
+        padding: 0 10px;
+    }
+
+    .contact-box .left {
+        display: none;
+    }
+
+    .contact-box .right {
+        padding: 25px 15px;
+    }
+
+    .contact-box .right textarea {
+        margin-bottom: 10px;
+    }
+
+    .contactbtn {
+        width: 70%;
+    }
+
 }
