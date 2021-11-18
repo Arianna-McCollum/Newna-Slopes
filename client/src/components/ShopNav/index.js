@@ -10,28 +10,23 @@ function Nav() {
     <nav className="navbar">
         <div className="nav-wrap">
             <div className="logo">
-                <Link to="/">
+                <Link onClick={()=> navigate("/")}>
                 <img src={logo} className="imglogo linkto" alt="logo" /></Link>
-                <Link className="linkto" to="/"><p>Newna <span>Bros.</span></p></Link>
+                <Link className="linkto" onClick={()=> navigate("/")}><p>Newna <span>Bros.</span></p></Link>
             </div>
 
             <div className="link-wrap">
                 <ul>
-                    
-                    <li>
-                        <Link className="center" to="/">Home</Link>
-                    </li>
 
                     <li>
-                        <Link to="our-story" className="center">Our Story
+                        <Link onClick={()=> navigate("/login")} to="our-story" className="center">Login
                         </Link>
                     </li>
 
                     <li>
-                        <Link className="center" to="contact">Contact</Link>
+                        <Link onClick={()=> navigate("/signup")} className="center" to="contact">Signup</Link>
                     </li>
                     
-                    <button className="btn" onClick={()=> navigate("/shop")}>Shop</button>
                 </ul>
             </div>
 
