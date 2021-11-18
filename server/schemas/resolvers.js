@@ -5,13 +5,13 @@ const { User, Product, Order, Category } = require("../models");
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find();
+      return User.find()
+      .populate({path: 'orders.products'});;
     },
     user: async(parent, args, context) => {
       if (context.user){
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.products'
-        });
+        const user = await User.findById(context.user._id)
+        .populate("order.products");
 
         // sorts orders by date created
         user.orders.sort((a,b) => b.purchaseData - a.purchaseData)
@@ -22,10 +22,12 @@ const resolvers = {
       throw new AuthenticationError('Not logged in')
     },
     products: async () => {
-      return Product.find();
+      return Product.find()
+      .populate("category");
     },
     orders: async () => {
-      return Order.find();
+      return Order.find()
+      .populate("product");
     },
     categories: async () => {
       return Category.find();
