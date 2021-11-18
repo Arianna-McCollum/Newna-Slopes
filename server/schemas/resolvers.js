@@ -6,7 +6,10 @@ const resolvers = {
   Query: {
     users: async () => {
       return User.find()
-      .populate({path: 'orders.products'});;
+      .populate({
+        path: 'orders.products',
+        populate: 'category'
+      });
     },
     user: async(parent, args, context) => {
       if (context.user){
@@ -27,7 +30,10 @@ const resolvers = {
     },
     orders: async () => {
       return Order.find()
-      .populate("product");
+      .populate({
+        path: 'orders.products',
+        populate: 'category'
+      });;
     },
     categories: async () => {
       return Category.find();
