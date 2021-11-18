@@ -24,6 +24,10 @@ html {
     background-color: var(--white);
 } */
 
+/* .categorys {
+    scroll-margin-top: 1em;
+} */
+
 
 /*Scroll btn template from https://codepen.io/tr13ze/pen/VjLLgJ  */
 .scroll-down {
@@ -115,7 +119,6 @@ html {
     display: flex;
     padding: 0 20px;
     height: auto;
-
 }
 
 .logo {
@@ -165,7 +168,7 @@ html {
     position: relative;
 }
 
-.link-wrap ul li a::before {
+.link-wrap ul li a::before{
     content: '';
     position: absolute;
     height: 2px;

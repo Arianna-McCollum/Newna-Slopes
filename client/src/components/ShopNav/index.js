@@ -3,7 +3,7 @@ import logo from '../../images/logos/logo.png'
 import { Link } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 
-function Nav() {
+function ShopNav() {
     const navigate = useNavigate();
 
   return (
@@ -15,7 +15,7 @@ function Nav() {
                 <Link className="linkto" onClick={()=> navigate("/")}><p>Newna <span>Bros.</span></p></Link>
             </div>
 
-            <div className="link-wrap">
+            <div className="shop-link-wrap">
                 <ul>
 
                     <li>
@@ -36,4 +36,4 @@ function Nav() {
   );
 }
 
-export default Nav
+export default ShopNav;
