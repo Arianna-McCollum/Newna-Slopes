@@ -9,6 +9,7 @@ module.exports = {
     let token = req.body.token || req.query.token || req.headers.authorization;
 
     // ["Bearer", "<tokenvalue>"]
+    // retrieves token from header
     if (req.headers.authorization) {
       token = token
         .split(' ')
@@ -21,10 +22,11 @@ module.exports = {
     }
 
     try {
+        // verifies that token has not expired
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
     } catch {
-      console.log('Invalid token');
+      console.log('AUTH: Invalid token');
     }
 
     return req;
