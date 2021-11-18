@@ -6,7 +6,10 @@ const resolvers = {
   Query: {
     users: async () => {
       return User.find()
-      .populate({path: 'orders.products'});;
+      .populate({
+        path: 'orders.products',
+        populate: 'category'
+      });
     },
     user: async(parent, args, context) => {
       if (context.user){
@@ -28,12 +31,20 @@ const resolvers = {
     product: async (parent, {_id}) => {
       return await Product.findById(_id).populate("category")
     },
-    orders: async () => {
-      return Order.find()
-      .populate("product");
-    },
     categories: async () => {
       return Category.find();
+    },
+    order: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'orders.products',
+          populate: 'category'
+        });
+
+        return user.orders.id(_id);
+      }
+
+      throw new AuthenticationError('Not logged in');
     }
   },
 
