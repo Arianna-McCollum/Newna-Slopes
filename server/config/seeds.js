@@ -149,6 +149,18 @@ db.once('open', async () => {
     password: 'password12345'
   });
 
+  await User.create({
+    firstName: 'Michael',
+    lastName: 'Astalos',
+    email: 'micaheldont@gmail.com',
+    password: 'Robotman1',
+    orders: [
+      {
+        products: [products[0]._id, products[0]._id, products[1]._id]
+      }
+    ]
+  });
+
   console.log('users seeded');
 
   process.exit();
