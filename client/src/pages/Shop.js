@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import ShopNav from '../components/ShopNav';
-import ShopMenu from '../components/ShopMenu';
-
+import CategoryMenu from '../components/CategoryMenu';
 import ProductList from "../components/ProductList";
 import Cart from '../components/Cart';
 
@@ -10,7 +9,7 @@ function Shop() {
   return (
     <div>
         <ShopNav />
-        <ShopMenu />
+        <CategoryMenu />
         <ProductList/>
         <Cart/>
     </div>

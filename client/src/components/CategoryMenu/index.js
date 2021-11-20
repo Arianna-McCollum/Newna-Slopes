@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { useStoreContext } from "../../utils/GlobalState";
 
-function ShopMenu() {
+function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
   const { data: categoryData } = useQuery(QUERY_CATEGORIES);
   const {categories} = state;
@@ -27,19 +27,19 @@ function ShopMenu() {
 
   return (
     <div>
-    <h2>Choose a Category:</h2>
-    {categories.map((item) => (
-      <button
-        key={item._id}
-        onClick={() => {
-          handleClick(item._id);
-        }}
-      >
+      <h2>Choose a Category:</h2>
+      {categories.map((item) => (
+        <button
+          key={item._id}
+          onClick={() => {
+            handleClick(item._id);
+          }}
+        >
           {item.name}
         </button>
-        ))}
+      ))}
     </div>
   );
 }
 
-export default ShopMenu;
+export default CategoryMenu;
