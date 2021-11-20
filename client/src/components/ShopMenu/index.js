@@ -1,33 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useQuery } from '@apollo/client';
+import { useStoreContext } from '../../utils/GlobalState';
+import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
+import { QUERY_CATEGORIES } from '../../utils/queries';
+import { idbPromise } from '../../utils/helpers';
 
 function ShopMenu() {
 
-    // for category functionality
+    //for category functionality
 
-    // const [state, dispatch] = useStoreContext();
+    const [state, dispatch] = useStoreContext();
 
-    // const { categories } = state;
+    const { categories } = state;
     
-    // const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+    const { data: categoryData } = useQuery(QUERY_CATEGORIES);
 
-    // useEffect(() => {
-    //     if (categoryData) {
-    //       dispatch({
-    //         type: UPDATE_CATEGORIES,
-    //         categories: categoryData.categories
-    //       });
-    //       categoryData.categories.forEach(category => {
-    //         idbPromise('categories', 'put', category);
-    //       });
-    //     } else if (!loading) {
-    //       idbPromise('categories', 'get').then(categories => {
-    //         dispatch({
-    //           type: UPDATE_CATEGORIES,
-    //           categories: categories
-    //         });
-    //       });
-    //     }
-    //   }, [categoryData, loading, dispatch]);
+    useEffect(() => {
+        if (categoryData) {
+          dispatch({
+            type: UPDATE_CATEGORIES,
+            categories: categoryData.categories
+          });
+}
+        
+      }, [categoryData, dispatch]);
 
     // const handleClick = id => {
     //     dispatch({
@@ -45,12 +41,11 @@ function ShopMenu() {
         <div className="shop-container">
             <h1>Products</h1>
             <div className="shop-wrap">
-                <div className="shop-left">
-                    <button className="product-btn">Snowboards</button>
-                    <button className="product-btn">Skis</button>
-                    <button className="product-btn">Apparel</button>
-                    <button className="product-btn">Wax & More</button>
-                </div>
+                {categories.map(item => (
+                    <div className="shop-left">
+                        <button className="product-btn">{item.name}</button>
+                    </div>
+                ))}
                 <div className="shop-right">
                     <div className="product">
                         <img src="https://dunkinanytime.coca-cola.com/content/dam/nagbrands/us/dunkin/en/products/iced-coffee/13-7-fl-oz/dunkin_PLP_thinMints.jpg" alt=""></img>
