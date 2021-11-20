@@ -7,7 +7,7 @@ export const QUERY_PRODUCTS = gql`
       name
       description
       price
-      quantity
+      inStockQuantity
       image
       category {
         _id
@@ -23,7 +23,7 @@ export const QUERY_ALL_PRODUCTS = gql`
       name
       description
       price
-      quantity
+      inStockQuantity
       category {
         name
       }
@@ -53,7 +53,7 @@ export const QUERY_USER = gql`
           name
           description
           price
-          quantity
+          inStockQuantity
           image
         }
       }
@@ -61,10 +61,10 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_CHECKOUT = gql`
+/*export const QUERY_CHECKOUT = gql`
   query getCheckout($products: [ID]!) {
     checkout(products: $products) {
       session
     }
   }
-`;
+`;*/
