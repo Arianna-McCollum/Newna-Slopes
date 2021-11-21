@@ -25,7 +25,6 @@ function App() {
   return (
     <div>
       <ApolloProvider client={client}>
-
         <StoreProvider>
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
