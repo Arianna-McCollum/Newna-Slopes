@@ -6,7 +6,7 @@ import "./css/home.css";
 import { Routes, Route} from "react-router-dom";
 
 import { StoreProvider } from "./utils/GlobalState";
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/client';
 import ApolloClient from 'apollo-boost';
 
 const client = new ApolloClient({
