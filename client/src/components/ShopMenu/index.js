@@ -1,40 +1,44 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import { idbPromise } from "../../utils/helpers"
+import { QUERY_CATEGORIES } from "../../utils/queries";
+import { useStoreContext } from "../../utils/GlobalState";
+import { useQuery } from '@apollo/react-hooks';
 
 function ShopMenu() {
 
     // for category functionality
 
-    // const [state, dispatch] = useStoreContext();
+    const [state, dispatch] = useStoreContext();
 
-    // const { categories } = state;
+    const { categories } = state;
     
-    // const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+    const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
-    // useEffect(() => {
-    //     if (categoryData) {
-    //       dispatch({
-    //         type: UPDATE_CATEGORIES,
-    //         categories: categoryData.categories
-    //       });
-    //       categoryData.categories.forEach(category => {
-    //         idbPromise('categories', 'put', category);
-    //       });
-    //     } else if (!loading) {
-    //       idbPromise('categories', 'get').then(categories => {
-    //         dispatch({
-    //           type: UPDATE_CATEGORIES,
-    //           categories: categories
-    //         });
-    //       });
-    //     }
-    //   }, [categoryData, loading, dispatch]);
+    useEffect(() => {
+        if (categoryData) {
+          dispatch({
+            type: UPDATE_CATEGORIES,
+            categories: categoryData.categories
+          });
+          categoryData.categories.forEach(category => {
+            idbPromise('categories', 'put', category);
+          });
+        } else if (!loading) {
+          idbPromise('categories', 'get').then(categories => {
+            dispatch({
+              type: UPDATE_CATEGORIES,
+              categories: categories
+            });
+          });
+        }
+      }, [categoryData, loading, dispatch]);
 
-    // const handleClick = id => {
-    //     dispatch({
-    //       type: UPDATE_CURRENT_CATEGORY,
-    //       currentCategory: id
-    //     });
-    //   };
+    const handleClick = id => {
+        dispatch({
+          type: UPDATE_CURRENT_CATEGORY,
+          currentCategory: id
+        });
+      };
 
   return (
     <div className="shop-page">
@@ -46,10 +50,9 @@ function ShopMenu() {
             <h1>Products</h1>
             <div className="shop-wrap">
                 <div className="shop-left">
-                    <button className="product-btn">Snowboards</button>
-                    <button className="product-btn">Skis</button>
-                    <button className="product-btn">Apparel</button>
-                    <button className="product-btn">Wax & More</button>
+                    {categories.map(item => (
+                        <button className="product-btn">{item.name}</button>
+                    ))}
                 </div>
                 <div className="shop-right">
                     <div className="product">
