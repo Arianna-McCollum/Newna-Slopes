@@ -1,0 +1,347 @@
+:root{
+    --primary-color: #457B9D;
+    --secondary-color: #A8DADC;
+    --tertiary-color: #E63946;
+    --accent-color: #F1FAEE;
+    --white: white;
+    --black: black;
+}
+
+
+/* Specific to Shop page */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Nav */
+
+.shop-link-wrap {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding: 0 40px;
+    justify-content: flex-end;
+}
+
+.shop-link-wrap ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px;
+    width: 50%;
+    align-items: center;
+}
+
+.shop-link-wrap ul li a {
+    font-size: 18px;
+    line-height: 1.5;
+    text-decoration: none;
+    color: var(--black);
+    padding: 7px 25px;
+    transition: .3s;
+    position: relative;
+}
+
+.shop-link-wrap ul li a::before{
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    background-color: var(--black);
+    bottom: 0;
+    left: 0;
+}
+
+.shop-link-wrap ul li a:hover::before {
+    width: 70%;
+    transition: .5s ease-in-out;
+}
+
+.shop-link-wrap ul li a.center::before {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.shop-link-wrap ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero */
+
+.shop-page {
+    margin-top: 65px;
+}
+
+.shop-hero {
+    height: 25vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shop-hero h1 {
+    color: var(--black);;  
+    font-size: 80px;
+    line-height: 0.9;
+    text-align: center;
+    font-family: 'Rock Salt', cursive;
+    position: relative;
+    font-weight: 500;
+}
+
+.shop-hero::before {
+    content: "";
+    background-image: linear-gradient(
+        235deg,rgba(0,0,0,0) 10%, var(--primary-color) 150%), url(../images/waxroombg.png);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    margin-top: 65px;
+    height: 25vw;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .2;
+}
+
+.shop-page h2 {
+    padding: 30px 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-weight: 100;
+    color: var(--black);
+}
+
+/* Shop section */
+
+.shop-container {
+    height: auto;
+    padding: 10px 50px;
+}
+
+.shop-container h1 {
+    font-weight: 500;
+    font-size: 30px;
+    font-family: 'Rock Salt', cursive;
+    padding: 0 40px;
+    text-align: left;
+    border-bottom: 2px var(--tertiary-color) solid;
+}
+
+.shop-wrap {
+    display: flex;
+    flex-direction: row;
+}
+
+.shop-left {
+    flex: 1;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.product-btn {
+    margin: 20px 0;
+    width: 70%;
+    background-color: transparent;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+}
+
+.product-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transition: .3s ease-in;
+}
+
+.shop-right {
+    flex: 5;
+    padding: 10px 20px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+.product img {
+    cursor: pointer;
+    transition: .2s ease-in;
+}
+
+.product img:hover {
+    opacity: .7;
+    transform: scale(1.1);
+
+}
+
+.product h3 {
+    padding: 5px 0;
+    margin-top: 10px
+}
+
+.product h4 {
+    font-style: italic;
+    font-size: 15px;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn-wrapper button {
+    margin: 5px 3px;
+    background-color: transparent;
+    color: black;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.btn-wrapper button:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transition: .3s ease-in;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 980px) {
+    body, html {
+        overflow-x: hidden;
+    }
+    .navbar {
+        display: flex;
+    }
+
+    .nav-wrap {
+        width: 100%;
+    }
+
+    .logo a p {
+        font-size: 18px;
+    }
+
+    .shop-link-wrap {
+        padding: 0;
+    }
+
+    .shop-hero {
+        height: 25vh;
+        margin-top: 100px;
+    }
+
+    .shop-hero::before {
+        height: 25vh;
+        margin-top: 100px;
+    }
+
+    .shop-hero h1 {
+        font-size: 65px;
+    }
+
+    .shop-page h2 {
+        padding: 30px 50px;
+    }
+
+
+    .product-btn {
+        width: 100%;
+    }
+
+    .shop-container {
+        padding: 10px 20px;
+    }
+
+    .shop-wrap {
+        flex-direction: column;
+    }
+
+    .shop-left {
+        flex-direction: row;
+    }
+
+    .shop-right {
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .product {
+        max-width: 50%;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+    body, html {
+        overflow-x: hidden;
+    }
+
+    .shop-link-wrap {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .shop-link-wrap ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .shop-link-wrap ul li a {
+        padding: 5px 10px;
+    }
+
+    .shop-hero h1 {
+        font-size: 40px;
+    }
+
+    .shop-page h2 {
+        padding: 30px 15px;
+        font-size: 20px;
+    }
+
+    .shop-container h1 {
+        font-size: 25px;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .shop-left {
+        justify-content: center;
+    }
+
+    .product-btn {
+        margin: 10px 0;
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .product {
+        max-width: none;
+    }
+}

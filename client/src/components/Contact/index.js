@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Contact() {
+  const navigate = useNavigate();
+
   return (
     <section className="contact" id="contact">
         <div className="contact-box">
@@ -11,7 +14,7 @@ function Contact() {
                 <input type="text" className="field" placeholder="Your Name" />
                 <input type="email" className="field" placeholder="Your E-mail" />
                 <textarea className="field" placeholder="Message" />
-                <button className="contactbtn btn">Send!</button>
+                <button className="contactbtn btn" onClick={()=> navigate("/success")}>Send!</button>
             </div>
 
         </div>
