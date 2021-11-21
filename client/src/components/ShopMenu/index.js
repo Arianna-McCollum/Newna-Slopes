@@ -13,7 +13,7 @@ function ShopMenu() {
 
     const { categories } = state;
     
-    const { data: categoryData } = useQuery(QUERY_CATEGORIES);
+    const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
     useEffect(() => {
         if (categoryData) {
@@ -21,16 +21,25 @@ function ShopMenu() {
             type: UPDATE_CATEGORIES,
             categories: categoryData.categories
           });
-}
-        
-      }, [categoryData, dispatch]);
+          categoryData.categories.forEach(category => {
+            idbPromise('categories', 'put', category);
+          });
+        } else if (!loading) {
+          idbPromise('categories', 'get').then(categories => {
+            dispatch({
+              type: UPDATE_CATEGORIES,
+              categories: categories
+            });
+          });
+        }
+      }, [categoryData, loading, dispatch]);
 
-    // const handleClick = id => {
-    //     dispatch({
-    //       type: UPDATE_CURRENT_CATEGORY,
-    //       currentCategory: id
-    //     });
-    //   };
+    const handleClick = id => {
+        dispatch({
+          type: UPDATE_CURRENT_CATEGORY,
+          currentCategory: id
+        });
+      };
 
   return (
     <div className="shop-page">
@@ -41,11 +50,11 @@ function ShopMenu() {
         <div className="shop-container">
             <h1>Products</h1>
             <div className="shop-wrap">
+                <div className="shop-left">
                 {categories.map(item => (
-                    <div className="shop-left">
                         <button className="product-btn">{item.name}</button>
-                    </div>
                 ))}
+                    </div>
                 <div className="shop-right">
                     <div className="product">
                         <img src="https://dunkinanytime.coca-cola.com/content/dam/nagbrands/us/dunkin/en/products/iced-coffee/13-7-fl-oz/dunkin_PLP_thinMints.jpg" alt=""></img>
