@@ -9,9 +9,9 @@ function Shop() {
   return (
     <div>
         <ShopNav />
-        <CategoryMenu />
-        <ProductList/>
-        <Cart/>
+        {/* <CategoryMenu /> */}
+        {/* <ProductList/> */}
+        {/* <Cart/> */}
     </div>
     
   );

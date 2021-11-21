@@ -1,58 +1,97 @@
 import React from "react";
-import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
+import logo from "../../images/logos/logo.png";
+import { Link } from "react-scroll";
+import { useNavigate } from "react-router-dom";
+import Auth from '../../utils/auth'
 
-function Nav() {
+function ShopNav() {
+  const navigate = useNavigate();
 
-  function showNavigation() {
+  const userNav = () => {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
-          </li>
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
-      );
+        <div className="shop-link-wrap">
+          <ul>
+            <li>
+              <Link
+                onClick={()=> Auth.logout()}
+                className="center"
+              >
+                Log out
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">
+        <div className="shop-link-wrap">
+        <ul>
+          <li>
+            <Link
+              onClick={() => navigate("/login")}
+              to="our-story"
+              className="center"
+            >
               Login
             </Link>
           </li>
+
+          <li>
+            <Link
+              onClick={() => navigate("/signup")}
+              className="center"
+              to="contact"
+            >
+              Signup
+            </Link>
+          </li>
         </ul>
-      );
+      </div>
+      )
     }
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
-        </Link>
-      </h1>
+    <nav className="navbar">
+      <div className="nav-wrap">
+        <div className="logo">
+          <Link onClick={() => navigate("/")}>
+            <img src={logo} className="imglogo linkto" alt="logo" />
+          </Link>
+          <Link className="linkto" onClick={() => navigate("/")}>
+            <p>
+              Newna <span>Bros.</span>
+            </p>
+          </Link>
+        </div>
 
-      <nav>
-        {showNavigation()}
-      </nav>
-    </header>
+        <div className="shop-link-wrap">
+          <ul>
+            <li>
+              <Link
+                onClick={() => navigate("/login")}
+                to="our-story"
+                className="center"
+              >
+                Login
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                onClick={() => navigate("/signup")}
+                className="center"
+                to="contact"
+              >
+                Signup
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 
-export default Nav;
+export default ShopNav;
