@@ -6,7 +6,7 @@ import "./css/home.css";
 import { Routes, Route} from "react-router-dom";
 
 import { StoreProvider } from "./utils/GlobalState";
-import { ApolloProvider } from '@apollo/client';
+import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 
 const client = new ApolloClient({
@@ -25,6 +25,7 @@ function App() {
   return (
     <div>
       <ApolloProvider client={client}>
+
         <StoreProvider>
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
