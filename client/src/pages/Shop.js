@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ShopNav from '../components/ShopNav';
-import ShopMenu from '../components/ShopMenu';
-import '../css/shop.css';
+import CategoryMenu from '../components/CategoryMenu';
+import ProductList from "../components/ProductList";
+import Cart from '../components/Cart';
 
 
 function Shop() {
   return (
     <div>
-        < ShopNav />
-        < ShopMenu />
+        <ShopNav />
+        <CategoryMenu />
+        <ProductList/>
+        <Cart/>
     </div>
     
   );
