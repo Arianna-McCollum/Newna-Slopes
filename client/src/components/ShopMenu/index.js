@@ -49,7 +49,7 @@ function ShopMenu() {
       <div className="shop-container">
         <h1>Products</h1>
         <div className="shop-wrap">
-          <CategoryMenu />
+            <CategoryMenu />
           {state.products.length ? (
             <div className="shop-right">
                 {filterProducts().map(product => (

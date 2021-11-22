@@ -26,8 +26,7 @@ function CategoryMenu() {
   };
 
   return (
-    <div>
-      <h2>Choose a Category:</h2>
+    <div className="shop-left">
       {categories.map((item) => (
         <button
           className = "product-btn"
