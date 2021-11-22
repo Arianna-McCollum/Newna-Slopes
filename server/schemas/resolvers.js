@@ -27,7 +27,19 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in')
     },
-    products: async () => {
+    products: async (parent, { category, name }) => {
+      const params = {};
+
+      if (category) {
+        params.category = category
+      }
+
+      if (name) {
+        params.name = {
+          $regex: name
+        }
+      }
+
       return Product.find()
       .populate("category");
     },

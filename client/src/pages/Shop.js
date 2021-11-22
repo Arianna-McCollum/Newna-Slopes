@@ -3,15 +3,17 @@ import ShopNav from '../components/ShopNav';
 import CategoryMenu from '../components/CategoryMenu';
 import ProductList from "../components/ProductList";
 import Cart from '../components/Cart';
+import ShopMenu from '../components/ShopMenu';
+import '../css/shop.css'
 
 
 function Shop() {
   return (
     <div>
         <ShopNav />
-        <CategoryMenu />
-        <ProductList/>
-        <Cart/>
+        {/* <CategoryMenu /> */}
+        <ShopMenu/>
+        {/* <Cart/> */}
     </div>
     
   );

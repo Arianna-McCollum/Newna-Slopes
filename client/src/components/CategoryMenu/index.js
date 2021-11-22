@@ -8,12 +8,9 @@ function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
   const { data: categoryData } = useQuery(QUERY_CATEGORIES);
   const {categories} = state;
-  console.log(categories);
 
   useEffect(() =>{
     if(categoryData){
-      console.log('cat data')
-      console.log(categoryData.categories)
       dispatch({
         type: UPDATE_CATEGORIES,
         categories: categoryData.categories
@@ -33,6 +30,7 @@ function CategoryMenu() {
       <h2>Choose a Category:</h2>
       {categories.map((item) => (
         <button
+          className = "product-btn"
           key={item._id}
           onClick={() => {
             handleClick(item._id);
