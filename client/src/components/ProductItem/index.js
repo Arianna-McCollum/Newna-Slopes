@@ -31,8 +31,8 @@ function ProductItem(item) {
     <div className="product">
       <Link to={`/products/${_id}`}>
         <img
-          src={`/images/${image}`}
           alt={name}
+          src={`/images/${image}`}
         ></img>
         <h3>{name}</h3>
       </Link>
