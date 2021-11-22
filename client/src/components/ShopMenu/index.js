@@ -32,6 +32,8 @@ function ShopMenu() {
         if(!currentCategory){
             return state.products;
         }
+
+        return state.products.filter(product => product.category._id === currentCategory);
     }
 
   return (
