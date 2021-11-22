@@ -5,34 +5,35 @@ import { QUERY_CATEGORIES } from '../../utils/queries';
 import { useStoreContext } from "../../utils/GlobalState";
 
 function CategoryMenu() {
-  // const [state, dispatch] = useStoreContext();
-  // const { data: categoryData } = useQuery(QUERY_CATEGORIES);
-  // const {categories} = state;
-  // console.log(categories);
+  const [state, dispatch] = useStoreContext();
+  const { data: categoryData } = useQuery(QUERY_CATEGORIES);
+  const {categories} = state;
+  console.log(categories);
 
-  // useEffect(() =>{
-  //   if(categoryData){
-  //     console.log('cat data')
-  //     console.log(categoryData.categories)
-  //     dispatch({
-  //       type: UPDATE_CATEGORIES,
-  //       categories: categoryData.categories
-  //     });
-  //   }
-  // }, [categoryData, dispatch]);
+  useEffect(() =>{
+    if(categoryData){
+      console.log('cat data')
+      console.log(categoryData.categories)
+      dispatch({
+        type: UPDATE_CATEGORIES,
+        categories: categoryData.categories
+      });
+    }
+  }, [categoryData, dispatch]);
 
-  // const handleClick = id => {
-  //   dispatch({
-  //     type: UPDATE_CURRENT_CATEGORY,
-  //     currentCategory: id
-  //   });
-  // };
+  const handleClick = id => {
+    dispatch({
+      type: UPDATE_CURRENT_CATEGORY,
+      currentCategory: id
+    });
+  };
 
   return (
     <div>
       <h2>Choose a Category:</h2>
-      {/* {categories.map((item) => (
+      {categories.map((item) => (
         <button
+          className = "product-btn"
           key={item._id}
           onClick={() => {
             handleClick(item._id);
@@ -40,7 +41,7 @@ function CategoryMenu() {
         >
           {item.name}
         </button>
-      ))} */}
+      ))}
     </div>
   );
 }
