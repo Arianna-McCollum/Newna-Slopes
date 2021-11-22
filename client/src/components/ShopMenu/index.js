@@ -1,121 +1,72 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import { useQuery } from "@apollo/client";
+import { useStoreContext } from "../../utils/GlobalState";
+import { UPDATE_PRODUCTS } from "../../utils/actions";
+import { QUERY_PRODUCTS } from "../../utils/queries";
+import spinner from "../../assets/spinner.gif";
+
+// components
+import CategoryMenu from "../CategoryMenu";
+import ProductItem from "../ProductItem";
+
 
 function ShopMenu() {
+    const [state, dispatch] = useStoreContext();
+    console.log(state)
 
-    // for category functionality
-
-    // const [state, dispatch] = useStoreContext();
-
-    // const { categories } = state;
+    const { currentCategory } = state;
     
-    // const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+    const { loading, data } = useQuery(QUERY_PRODUCTS);
+    console.log(data)
 
-    // useEffect(() => {
-    //     if (categoryData) {
-    //       dispatch({
-    //         type: UPDATE_CATEGORIES,
-    //         categories: categoryData.categories
-    //       });
-    //       categoryData.categories.forEach(category => {
-    //         idbPromise('categories', 'put', category);
-    //       });
-    //     } else if (!loading) {
-    //       idbPromise('categories', 'get').then(categories => {
-    //         dispatch({
-    //           type: UPDATE_CATEGORIES,
-    //           categories: categories
-    //         });
-    //       });
-    //     }
-    //   }, [categoryData, loading, dispatch]);
+    useEffect(() => {
+        if(data){
+            dispatch({
+                type: UPDATE_PRODUCTS,
+                products: data.products
+            });
+        }
+    }, [data, loading, dispatch])
 
-    // const handleClick = id => {
-    //     dispatch({
-    //       type: UPDATE_CURRENT_CATEGORY,
-    //       currentCategory: id
-    //     });
-    //   };
+    function filterProducts(){
+        if(!currentCategory){
+            return state.products;
+        }
+    }
 
   return (
     <div className="shop-page">
-        <div className="shop-hero">
-            <h1>The Wax Room</h1>
-        </div>
-        <h2>Get your favorite gear at the best price! Whether you are experienced or new to the slopes, browse our shop below to find a product that will suit your needs.</h2>
-        <div className="shop-container">
-            <h1>Products</h1>
-            <div className="shop-wrap">
-                <div className="shop-left">
-                    <button className="product-btn">Snowboards</button>
-                    <button className="product-btn">Skis</button>
-                    <button className="product-btn">Apparel</button>
-                    <button className="product-btn">Wax & More</button>
-                </div>
-                <div className="shop-right">
-                    <div className="product">
-                        <img src="https://dunkinanytime.coca-cola.com/content/dam/nagbrands/us/dunkin/en/products/iced-coffee/13-7-fl-oz/dunkin_PLP_thinMints.jpg" alt=""></img>
-                        <h3>Iced Coffee</h3>
-                        <h4>Price: $4</h4>
-                        <div className="btn-wrapper">
-                            <button>View</button>
-                            <button><i class="fas fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-
-                    <div className="product">
-                        <img src="https://dunkinanytime.coca-cola.com/content/dam/nagbrands/us/dunkin/en/products/iced-coffee/13-7-fl-oz/dunkin_PLP_thinMints.jpg" alt=""></img>
-                        <h3>Iced Coffee</h3>
-                        <h4>Price: $4</h4>
-                        <div className="btn-wrapper">
-                            <button>View</button>
-                            <button><i class="fas fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-
-                    <div className="product">
-                        <img src="https://dunkinanytime.coca-cola.com/content/dam/nagbrands/us/dunkin/en/products/iced-coffee/13-7-fl-oz/dunkin_PLP_thinMints.jpg" alt=""></img>
-                        <h3>Iced Coffee</h3>
-                        <h4>Price: $4</h4>
-                        <div className="btn-wrapper">
-                            <button>View</button>
-                            <button><i class="fas fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-
-                    <div className="product">
-                        <img src="https://dunkinanytime.coca-cola.com/content/dam/nagbrands/us/dunkin/en/products/iced-coffee/13-7-fl-oz/dunkin_PLP_thinMints.jpg" alt=""></img>
-                        <h3>Iced Coffee</h3>
-                        <h4>Price: $4</h4>
-                        <div className="btn-wrapper">
-                            <button>View</button>
-                            <button><i class="fas fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-
-                    <div className="product">
-                        <img src="https://dunkinanytime.coca-cola.com/content/dam/nagbrands/us/dunkin/en/products/iced-coffee/13-7-fl-oz/dunkin_PLP_thinMints.jpg" alt=""></img>
-                        <h3>Iced Coffee</h3>
-                        <h4>Price: $4</h4>
-                        <div className="btn-wrapper">
-                            <button>View</button>
-                            <button><i class="fas fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-
-                    <div className="product">
-                        <img src="https://dunkinanytime.coca-cola.com/content/dam/nagbrands/us/dunkin/en/products/iced-coffee/13-7-fl-oz/dunkin_PLP_thinMints.jpg" alt=""></img>
-                        <h3>Iced Coffee</h3>
-                        <h4>Price: $4</h4>
-                        <div className="btn-wrapper">
-                            <button>View</button>
-                            <button><i class="fas fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
+      <div className="shop-hero">
+        <h1>The Wax Room</h1>
+      </div>
+      <h2>
+        Get your favorite gear at the best price! Whether you are experienced or
+        new to the slopes, browse our shop below to find a product that will
+        suit your needs.
+      </h2>
+      <div className="shop-container">
+        <h1>Products</h1>
+        <div className="shop-wrap">
+          <CategoryMenu />
+          {state.products.length ? (
+            <div className="shop-right">
+                {filterProducts().map(product => (
+                    <ProductItem 
+                        key = {product._id}
+                        _id = {product._id}
+                        image={product.image}
+                        name={product.name}
+                        price={product.price}
+                    />
+                ))}
             </div>
+          ) : (
+            <h3>No products found</h3>
+          )}
+            {loading ? <img src={spinner} alt="loading" /> : null}
         </div>
+      </div>
     </div>
-    
   );
 }
 
