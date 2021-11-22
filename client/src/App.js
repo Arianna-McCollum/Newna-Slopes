@@ -41,7 +41,7 @@ function App() {
         <StoreProvider>
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
-            <Route path="/shop" element={<Shop />}></Route>
+            <Route exact path="/shop" element={<Shop />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/login" element={<Login />}></Route>
             {/* <Route path="/success" element={<Success />}></Route> */}
