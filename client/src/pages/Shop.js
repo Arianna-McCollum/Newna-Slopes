@@ -10,7 +10,7 @@ function Shop() {
     <div>
         <ShopNav />
         <ShopMenu/>
-        {/* <Cart/> */}
+        <Cart/> 
     </div>
     
   );
