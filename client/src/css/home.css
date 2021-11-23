@@ -540,8 +540,9 @@ html {
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px) {
-    body, html {
+    .root {
         overflow-x: hidden;
+        position: fixed;
     }
 
     .navbar {
