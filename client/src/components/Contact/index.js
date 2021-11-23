@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+import Fade from 'react-reveal/Fade';
 
 function Contact() {
   const navigate = useNavigate();
@@ -7,7 +8,10 @@ function Contact() {
   return (
     <section className="contact" id="contact">
         <div className="contact-box">
+            <Fade left>
             <div className="left"></div>
+            </Fade>
+            <Fade right>
             <div className="right">
                 <h2>Send us a message!</h2>
                 <p>A real person will get back to you as soon as possible!</p>
@@ -16,6 +20,7 @@ function Contact() {
                 <textarea className="field" placeholder="Message" />
                 <button className="contactbtn btn" onClick={()=> navigate("/success")}>Send!</button>
             </div>
+            </Fade>
 
         </div>
 

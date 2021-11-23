@@ -13,6 +13,7 @@ const typeDefs = gql`
   type Product {
     _id: ID
     name: String
+    image: String
     price: Float
     description: String
     inStockQuantity: Int
@@ -28,6 +29,10 @@ const typeDefs = gql`
     _id: ID
     purchaseDate: String
     products: [Product]
+  }
+
+  type Checkout {
+    session: ID
   }
 
   type Auth {

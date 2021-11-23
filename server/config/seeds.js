@@ -5,10 +5,10 @@ db.once('open', async () => {
   await Category.deleteMany();
 
   const categories = await Category.insertMany([
-    { name: 'Food' },
-    { name: 'Climbing Equipment' },
+    { name: 'Snowboards' },
+    { name: 'Skis' },
     { name: 'Clothing' },
-    { name: 'Misc' }
+    { name: 'Wax' }
   ]);
 
   console.log('categories seeded');
@@ -17,101 +17,173 @@ db.once('open', async () => {
 
   const products = await Product.insertMany([
     {
-      name: 'Rope',
+      name: 'Snowboard - Mens',
       description:
-        'Long string like thing.',
-      image: 'rope.jpg',
-      category: categories[1]._id,
-      price: 10.99,
-      quantity: 500
-    },
-    {
-      name: 'Canned Coffee',
-      description:
-        'Smells like coffe, tastes like coffee, it must be coffee.',
-      image: 'canned-coffee.jpg',
+        'Burton - Yellow/White Snowboard 2022',
+      image: 'snowboard1.jpeg',
       category: categories[0]._id,
-      price: 1.99,
+      price: 600,
       quantity: 500
     },
     {
-      name: 'Toilet Paper',
-      category: categories[3]._id,
+      name: 'Snowboard - Mens',
       description:
-        'For all your sanitary needs.',
-      image: 'toilet-paper.jpg',
-      price: 7.99,
-      quantity: 20
+        'K2 - Black/Red Snowboard 2022',
+      image: 'snowboard2.jpeg',
+      category: categories[0]._id,
+      price: 300,
+      quantity: 500
     },
     {
-      name: 'Handmade Soap',
-      category: categories[3]._id,
+      name: 'Snowboard - Mens',
       description:
-        'Not even the mountains are safe from rona.',
-      image: 'soap.jpg',
-      price: 3.99,
-      quantity: 50
+        'Rossignol - White Wide Snowboard',
+      image: 'snowboard3.jpeg',
+      category: categories[0]._id,
+      price: 300,
+      quantity: 500
     },
     {
-      name: 'Set of Wooden Spoons',
-      category: categories[3]._id,
+      name: 'Snowboard - Womens',
       description:
-        'Becuase plastic is gross.',
-      image: 'wooden-spoons.jpg',
-      price: 14.99,
-      quantity: 100
+        'Rossignol - Myth Womens Snowboard 2022',
+      image: 'snowboard4.jpeg',
+      category: categories[0]._id,
+      price: 350,
+      quantity: 500
     },
     {
-      name: 'Camera',
-      category: categories[3]._id,
+      name: 'Snowboard - Kids',
       description:
-        "A device that andriods phones haven't mastered yet.",
-      image: 'camera.jpg',
-      price: 399.99,
-      quantity: 30
+        'Burton - Chopper Boys Snowboard',
+      image: 'snowboard5.jpeg',
+      category: categories[0]._id,
+      price: 200,
+      quantity: 500
     },
     {
-      name: 'Helmet',
+      name: 'Skis - Mens',
+      description:
+        'Line - Honey Badger Skis 2022',
+      image: 'skis3.jpeg',
       category: categories[1]._id,
+      price: 450,
+      quantity: 500
+    },
+    {
+      name: 'Skis',
       description:
-        'If Tony Hawk wears one, so should you.',
-      image: 'Helmet.jpg',
-      price: 199.99,
-      quantity: 30
+        'Armada - ARV 96 Skis 2022',
+      image: 'skis4.jpeg',
+      category: categories[1]._id,
+      price: 550,
+      quantity: 500
+    },
+    {
+      name: 'Skis - Mens',
+      description:
+        'Dynastar - Speed Zone 4x4 82 Pro Skis with SPX 12 Konect GW Bindings',
+      image: 'skis2.jpeg',
+      category: categories[1]._id,
+      price: 300,
+      quantity: 500
+    },
+    {
+      name: 'Skis - Womens',
+      description:
+        'Rossignol - Experience 76 Womens Skis with Xpress 10 GW Bindings 2022',
+      image: 'skis5.jpeg',
+      category: categories[1]._id,
+      price: 380,
+      quantity: 500
+    },
+    {
+      name: 'Skis (Kids)',
+      description:
+        'Launch QT Kids Skis with EL 4.5 GW Shift Bindings',
+      image: 'skis1.jpeg',
+      category: categories[1]._id,
+      price: 120,
+      quantity: 500
     },
     {
       name: 'Jacket',
       category: categories[2]._id,
       description:
-        'It gets windy a thousand feet above sea level.',
-      image: 'Jacket.jpg',
-      price: 9.99,
+        'Alpha 3.0 Mens Insulated Ski Jacket 2022',
+      image: 'jacket.jpeg',
+      price: 55,
+      quantity: 20
+    },
+    {
+      name: 'Pants',
+      category: categories[2]._id,
+      description:
+        'Legendary Insulated Mens Ski Pants 2022',
+      image: 'pants.jpeg',
+      price: 65,
+      quantity: 20
+    },
+    {
+      name: 'Gloves',
+      category: categories[2]._id,
+      description:
+        'Hestra - Heli Gloves 2022',
+      image: 'gloves.jpeg',
+      price: 40,
+      quantity: 20
+    },
+    {
+      name: 'Socks',
+      category: categories[2]._id,
+      description:
+        "SmartWool - PhD Ski Medium Ski Socks 2022",
+      image: 'socks.jpeg',
+      price: 25,
+      quantity: 30
+    },
+    {
+      name: 'Beanie',
+      category: categories[2]._id,
+      description:
+        'CandyGrind - Embassy Beanie Hat',
+      image: 'beanie.jpeg',
+      price: 30,
+      quantity: 30
+    },
+    {
+      name: 'Hoodie',
+      category: categories[2]._id,
+      description:
+        'Armada - Multiply Mens Hoodie',
+      image: 'hoodie.jpeg',
+      price: 40,
       quantity: 100
     },
     {
-      name: 'Cargo pants',
+      name: 'Goggles',
       category: categories[2]._id,
-      description: 'Every good explore has at least 10 pockets.',
-      image: 'cargo-pant.jpg',
-      price: 19.99,
+      description: 'Oakley - Flight Deck L Prizm Goggles 2022',
+      image: 'goggles.jpeg',
+      price: 75,
       quantity: 1000
     },
     {
-      name: 'Granola Bar',
-      category: categories[0]._id,
+      name: 'Wax - Universal',
+      category: categories[3]._id,
       description:
-        'Nothing tastes like adventure then a bar of oats.',
-      image: 'granola-bar.jpg',
-      price: 7.99,
+        'Swix - Universal glide wax',
+      image: 'wax1.jpeg',
+      price: 8,
       quantity: 100
     },
     {
-      name: 'Climbing Hooks',
-      category: categories[1]._id,
+      name: 'Wax - Blue',
+      category: categories[3]._id,
       description:
-        'Free climbers think little of you, but you will have the last laugh...',
-      image: 'climbing-hooks.jpg',
-      price: 9.99,
+        'Swix - Blue Wax',
+      image: 'wax2.jpeg',
+      price: 10,
       quantity: 600
     }
   ]);
@@ -142,7 +214,7 @@ db.once('open', async () => {
   await User.create({
     firstName: 'Michael',
     lastName: 'Astalos',
-    email: 'micaheldont@gmail.com',
+    email: 'michaeldont@gmail.com',
     password: 'Robotman1',
     orders: [
       {
