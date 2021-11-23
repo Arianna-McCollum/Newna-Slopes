@@ -1,0 +1,35 @@
+:root{
+    --primary-color: #457B9D;
+    --secondary-color: #A8DADC;
+    --tertiary-color: #E63946;
+    --accent-color: #F1FAEE;
+    --white: white;
+    --black: black;
+}
+
+/* Main Page */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.btn {
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+    .root {
+        overflow-x: hidden;
+        position: fixed;
+    }
+}

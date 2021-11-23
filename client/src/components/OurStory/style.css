@@ -1,0 +1,60 @@
+  /* Our Story */
+
+  .ourstory {
+    padding: 50px 300px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.ourstory span {
+    color: var(--primary-color);
+}
+
+.ourstory h2 {
+    font-size: 50px;
+    font-family: 'Rock Salt', cursive;
+    position: relative;
+}
+
+.ourstory p {
+    font-size: 20px;
+}
+
+.ourstory img {
+    margin-top: 30px;
+    transition: .5s ease-in;
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.15);
+}
+
+.ourstory img:hover {
+    opacity: .8;
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.15);
+}
+
+/* End Our Story */
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+    .ourstory {
+        padding: 90px 100px;
+        text-align: center;
+    }
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 480px) {
+    .ourstory {
+        padding: 20px 20px;
+        padding-bottom: 0;
+    }
+
+    .ourstory h2 {
+        font-size: 37px;
+    }
+
+    .ourstory p {
+        font-size: 18px;
+    }
+}

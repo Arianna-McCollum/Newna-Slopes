@@ -1,0 +1,48 @@
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.icons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icons a {
+    text-decoration: none;
+    color: var(--black);
+    padding: 0 10px;
+}
+
+.icons a span {
+    padding: 0 10px;
+}
+
+.icons i:hover {
+    transform: scale(2);
+    transition: .3s;
+}
+
+/* End footer */
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+    .icons {
+        width: 100%;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+
+    .icons span {
+        padding: 10px 20px;
+    }
+
+    .icons a {
+        padding: 10px 20px;
+    }
+}
