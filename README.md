@@ -40,3 +40,8 @@ Buy our Snowboards, Skis, or even our merch to get you ready for the slopes!
  This application uses the MIT license.
  
   ## How it should look
+  <img width="1440" alt="landing page" src="https://user-images.githubusercontent.com/84648098/143052972-456b75a5-8faf-4e0f-acf8-59244d8241fc.png">
+<img width="1440" alt="shop" src="https://user-images.githubusercontent.com/84648098/143053004-4aaf9a43-c5e1-4048-95e1-c848ca192f1d.png">
+<img width="1440" alt="details" src="https://user-images.githubusercontent.com/84648098/143053022-9a9e2cae-6018-49cf-b085-c5cd0812f204.png">
+<img width="1440" alt="signup page" src="https://user-images.githubusercontent.com/84648098/143053038-71d7354c-ec45-45ed-be1d-b6fa67ab0e5a.png">
+
