@@ -3,6 +3,7 @@ import logo from "../../images/logos/logo.png";
 import { Link } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 import Auth from '../../utils/auth'
+import Cart from '../Cart/index'
 
 function ShopNav() {
   const navigate = useNavigate();
@@ -65,30 +66,8 @@ function ShopNav() {
             </p>
           </Link>
         </div>
-
-        <div className="shop-link-wrap">
-          <ul>
-            <li>
-              <Link
-                onClick={() => navigate("/login")}
-                to="our-story"
-                className="center"
-              >
-                Login
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                onClick={() => navigate("/signup")}
-                className="center"
-                to="contact"
-              >
-                Signup
-              </Link>
-            </li>
-          </ul>
-        </div>
+      {userNav()}
+      <Cart/>
       </div>
     </nav>
   );
