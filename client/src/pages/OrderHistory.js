@@ -1,6 +1,6 @@
 import React from "react";
 import ShopNav from '../components/ShopNav';
-import Order from "../components/Order";
+import Orders from "../components/Orders";
 
 
 function OrderHistory() {
@@ -8,7 +8,7 @@ function OrderHistory() {
     
     <div>
       <ShopNav />
-      <Order />
+      <Orders />
     </div>
   )
 };

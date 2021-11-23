@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from "../../utils/queries";
+import './style.css';
 
 function Order() {
   const { data } = useQuery(QUERY_USER);
@@ -14,10 +15,13 @@ function Order() {
 
   return (
     
-    <div>
+    <div className="order-page">
       {user ? (
         <>
-          <h2>Order History for {user.firstName} {user.lastName}</h2>
+          <div className="order-hero">
+            
+            <h1>Order History for <br/>{user.firstName} {user.lastName}</h1>
+          </div>
           {user.orders.map((order) => (
             <div key={order._id} className="order">
               <h3>Order Placed{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</h3>
