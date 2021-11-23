@@ -480,8 +480,9 @@
 }
 
 @media screen and (max-width: 980px) {
-    body, html {
+    .root {
         overflow-x: hidden;
+        position: fixed;
     }
 
     .details {
