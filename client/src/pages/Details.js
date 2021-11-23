@@ -6,6 +6,7 @@ import { UPDATE_PRODUCTS, ADD_TO_CART, UPDATE_CART_QUANTITY, REMOVE_FROM_CART } 
 import { QUERY_PRODUCTS } from '../utils/queries';
 import spinner from '../assets/spinner.gif';
 import Cart from '../components/Cart';
+import ShopNav from '../components/ShopNav';
 
 function Detail() {
 const [state, dispatch] = useStoreContext();
@@ -53,30 +54,33 @@ const removeFromCart = () => {
 };
 
   return (
-    <>
+    <div className="details">
+      <ShopNav />
       {currentProduct ? (
-        <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
-
-          <h2>{currentProduct.name}</h2>
-
-          <p>{currentProduct.description}</p>
-
-          <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button disabled={!cart.find(p => p._id === currentProduct._id)} onClick={removeFromCart}>Remove from Cart</button>
-          </p>
-
+        <div className="product-container">
+          <div className="product-img-container">
           <img
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
           />
+          </div>
+
+          <div className="info-container">
+            <h2>{currentProduct.name}</h2>
+            <p><em>{currentProduct.description}</em></p>
+            <p><strong>Price:</strong> ${currentProduct.price}{' '}</p>
+            <div className="btn-wrapper3">
+              <button onClick={addToCart}>Add to Cart</button>
+              <button disabled={!cart.find(p => p._id === currentProduct._id)} onClick={removeFromCart}>Remove from Cart</button>
+            </div>
+            <Link to="/shop">← Back to Products</Link>
+
+          </div>
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart/>
-    </>
+    </div>
   );
 }
 

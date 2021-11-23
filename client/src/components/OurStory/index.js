@@ -1,7 +1,9 @@
 import React from 'react';
+import Fade from 'react-reveal/Fade';
 
 function OurStory() {
   return (
+    <Fade bottom cascade>
     <section id="our-story">
         <div className="ourstory">
           <h2>Our Story...</h2>
@@ -11,7 +13,7 @@ function OurStory() {
           <span>Newna Bros</span>  is now the go-to equipment store with 6 different locations servicing over 20 trails within Newna Slopes - the busiest ski attraction in Utah! Our mission is the same as its always been : </p>
         </div>
     </section>
-    
+    </Fade>
   );
 }
 

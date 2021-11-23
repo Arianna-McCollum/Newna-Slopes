@@ -5,6 +5,7 @@ import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import spinner from "../../assets/spinner.gif";
 
+
 // components
 import CategoryMenu from "../CategoryMenu";
 import ProductItem from "../ProductItem";
@@ -41,6 +42,7 @@ function ShopMenu() {
       <div className="shop-hero">
         <h1>The Wax Room</h1>
       </div>
+      
       <h2>
         Get your favorite gear at the best price! Whether you are experienced or
         new to the slopes, browse our shop below to find a product that will
