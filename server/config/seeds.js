@@ -147,7 +147,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'CandyGrind - Embassy Beanie Hat',
-      image: 'Helmet.jpeg',
+      image: 'beanie.jpeg',
       price: 30,
       quantity: 30
     },
@@ -173,16 +173,16 @@ db.once('open', async () => {
       category: categories[3]._id,
       description:
         'Swix - Universal glide wax',
-      image: 'wax1.webp',
+      image: 'wax1.jpeg',
       price: 8,
       quantity: 100
     },
     {
-      name: 'Wax - Racing',
+      name: 'Wax - Blue',
       category: categories[3]._id,
       description:
-        'Swix - Racing wax',
-      image: 'wax2.webp',
+        'Swix - Blue Wax',
+      image: 'wax2.jpeg',
       price: 10,
       quantity: 600
     }

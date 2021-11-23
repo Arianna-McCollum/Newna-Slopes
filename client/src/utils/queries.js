@@ -6,6 +6,7 @@ query Products($category: ID, $name: String) {
     _id
     name
     price
+    image
     description
     inStockQuantity
     category {
