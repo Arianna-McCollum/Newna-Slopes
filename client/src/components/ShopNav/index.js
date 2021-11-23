@@ -15,6 +15,14 @@ function ShopNav() {
           <ul>
             <li>
               <Link
+                onClick={() => navigate("/orderhistory")}
+                className="center"
+              >
+                Orders
+              </Link>
+            </li>
+            <li>
+              <Link
                 onClick={()=> Auth.logout()}
                 className="center"
               >
