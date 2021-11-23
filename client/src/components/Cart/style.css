@@ -10,6 +10,7 @@
   padding: .5rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
   border-bottom-left-radius: .5rem;
+  z-index: 9999;
 }
 
 .cart h2 {
@@ -51,6 +52,7 @@
 .cart img {
   width: 70px;
   margin-right: 1rem;
+  z-index: 9999999;
 }
 
 .cart input {
