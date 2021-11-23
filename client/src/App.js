@@ -6,7 +6,6 @@ import Login from "./pages/Login";
 import Detail from "./pages/Details"
 import OrderHistory from "./pages/OrderHistory"
 import Footer from "./components/Footer";
-import "./css/home.css";
 import { Routes, Route } from "react-router-dom";
 import { StoreProvider } from "./utils/GlobalState";
 import {

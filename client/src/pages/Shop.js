@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
+
+// Components
 import ShopNav from '../components/ShopNav';
-import Cart from '../components/Cart';
 import ShopMenu from '../components/ShopMenu';
-import '../css/shop.css'
 
 
 function Shop() {
@@ -11,7 +11,6 @@ function Shop() {
         <ShopNav />
         <ShopMenu/>
     </div>
-    
   );
 }
 

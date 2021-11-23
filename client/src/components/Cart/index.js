@@ -1,13 +1,16 @@
 import React, {useEffect} from 'react';
-import CartItem from '../CartItem';
-import Auth from '../../utils/auth';
-import './style.css';
 import { useStoreContext } from '../../utils/GlobalState';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers"
+import ShoppingCart from './shopping-cart.png'
+import './style.css';
+
+// Components
+import CartItem from '../CartItem';
+import Auth from '../../utils/auth';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -63,9 +66,8 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
-        <span
-          role="img"
-          aria-label="trash">🛒</span>
+        {/* Icon made by "https://www.flaticon.com/authors/tempo-doloe" */}
+        <img src={ShoppingCart} alt="shopping cart" />
       </div>
     );
   }
@@ -73,8 +75,10 @@ const Cart = () => {
 
   return (
     <div className="cart">
-  <div className="close" onClick={toggleCart}>[close]</div>
-  <h2>Shopping Cart</h2>
+  <div className="cart-container">
+    <h2>Shopping Cart</h2>
+    <div className="close" onClick={toggleCart}><i class="fas fa-times"></i></div>
+  </div>
   {state.cart.length ? (
     <div>
       {state.cart.map(item => (
@@ -84,7 +88,7 @@ const Cart = () => {
         <strong>Total: ${calculateTotal()}</strong>
         {
           Auth.loggedIn() ?
-            <button onClick={submitCheckout}>
+            <button className="checkout-btn" onClick={submitCheckout}>
               Checkout
             </button>
             :
@@ -94,10 +98,7 @@ const Cart = () => {
     </div>
   ) : (
     <h3>
-      <span role="img" aria-label="shocked">
-        😱
-      </span>
-      You haven't added anything to your cart yet!
+      Your shopping cart is empty!
     </h3>
   )}
 </div>

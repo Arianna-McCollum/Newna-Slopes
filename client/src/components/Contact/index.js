@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import Fade from 'react-reveal/Fade';
+import './style.css';
 
 function Contact() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ function Contact() {
             <Fade right>
             <div className="right">
                 <h2>Send us a message!</h2>
-                <p>A real person will get back to you as soon as possible!</p>
+                <p>We will get back to you as soon as possible!</p>
                 <input type="text" className="field" placeholder="Your Name" />
                 <input type="email" className="field" placeholder="Your E-mail" />
                 <textarea className="field" placeholder="Message" />

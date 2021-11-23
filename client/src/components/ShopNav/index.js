@@ -2,6 +2,9 @@ import React from "react";
 import logo from "../../images/logos/logo.png";
 import { Link } from "react-scroll";
 import { useNavigate } from "react-router-dom";
+import './style.css';
+
+// Components
 import Auth from '../../utils/auth'
 import Cart from '../Cart/index'
 
@@ -11,7 +14,6 @@ function ShopNav() {
   const userNav = () => {
     if (Auth.loggedIn()) {
       return (
-        <div className="shop-link-wrap">
           <ul>
             <li>
               <Link
@@ -30,11 +32,9 @@ function ShopNav() {
               </Link>
             </li>
           </ul>
-        </div>
       )
     } else {
       return (
-        <div className="shop-link-wrap">
         <ul>
           <li>
             <Link
@@ -56,7 +56,6 @@ function ShopNav() {
             </Link>
           </li>
         </ul>
-      </div>
       )
     }
   }
@@ -74,8 +73,10 @@ function ShopNav() {
             </p>
           </Link>
         </div>
+      <div className="shop-link-wrap">
       {userNav()}
       <Cart/>
+      </div>
       </div>
     </nav>
   );
