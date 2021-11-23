@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Success from "./pages/Success";
 import Detail from "./pages/Details"
 import OrderHistory from "./pages/OrderHistory"
 import Footer from "./components/Footer";
@@ -46,9 +47,9 @@ function App() {
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route exact path="/products/:id" element={<Detail />}></Route>
-            {/* <Route path="/success" element={<Success />}></Route> */}
             <Route path="/orderhistory" element={<OrderHistory />}></Route>
-            </Routes>
+            <Route path="/success" element={<Success />}></Route>
+          </Routes>
         </StoreProvider>
         <Footer />
       </div>
