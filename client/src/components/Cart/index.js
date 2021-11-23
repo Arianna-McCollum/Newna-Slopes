@@ -44,7 +44,7 @@ const Cart = () => {
         <strong>Total: ${calculateTotal()}</strong>
         {
           Auth.loggedIn() ?
-            <button>
+            <button onClick={()=> navigate("/success")}>
               Checkout
             </button>
             :

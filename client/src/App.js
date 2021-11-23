@@ -4,6 +4,7 @@ import Shop from "./pages/Shop";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
+import Success from "./pages/Success";
 import "./css/home.css";
 import { Routes, Route } from "react-router-dom";
 import { StoreProvider } from "./utils/GlobalState";
@@ -44,7 +45,7 @@ function App() {
             <Route exact path="/shop" element={<Shop />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/login" element={<Login />}></Route>
-            {/* <Route path="/success" element={<Success />}></Route> */}
+            <Route path="/success" element={<Success />}></Route>
           </Routes>
         </StoreProvider>
         <Footer />
