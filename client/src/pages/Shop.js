@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ShopNav from '../components/ShopNav';
-import Cart from '../components/Cart';
 import ShopMenu from '../components/ShopMenu';
 import '../css/shop.css'
 

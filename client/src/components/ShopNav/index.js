@@ -11,7 +11,6 @@ function ShopNav() {
   const userNav = () => {
     if (Auth.loggedIn()) {
       return (
-        <div className="shop-link-wrap">
           <ul>
             <li>
               <Link
@@ -22,11 +21,9 @@ function ShopNav() {
               </Link>
             </li>
           </ul>
-        </div>
       )
     } else {
       return (
-        <div className="shop-link-wrap">
         <ul>
           <li>
             <Link
@@ -48,7 +45,6 @@ function ShopNav() {
             </Link>
           </li>
         </ul>
-      </div>
       )
     }
   }
@@ -66,8 +62,10 @@ function ShopNav() {
             </p>
           </Link>
         </div>
+      <div className="shop-link-wrap">
       {userNav()}
       <Cart/>
+      </div>
       </div>
     </nav>
   );

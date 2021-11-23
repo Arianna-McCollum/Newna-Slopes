@@ -81,6 +81,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 68px;
 }
 
 .shop-hero h1 {
@@ -100,7 +101,7 @@
     background-position: center;
     background-size: cover;
     position: absolute;
-    margin-top: 65px;
+    margin-top: 68px;
     height: 25vw;
     top: 0;
     right: 0;
@@ -304,6 +305,10 @@
         overflow-x: hidden;
     }
 
+    nav .navbar {
+        padding: 0;
+    }
+
     .shop-link-wrap {
         width: 100%;
         justify-content: center;
@@ -321,6 +326,16 @@
 
     .shop-hero h1 {
         font-size: 40px;
+    }
+
+    .shop-hero {
+        height: 35vh;
+        margin-top: 125px;
+    }
+
+    .shop-hero::before {
+        height: 35vh;
+        margin-top: 125px;
     }
 
     .shop-page h2 {
@@ -347,6 +362,7 @@
     .product {
         max-width: none;
     }
+
 }
 
 /* Details page */
@@ -464,8 +480,9 @@
 }
 
 @media screen and (max-width: 980px) {
-    body, html {
+    .root {
         overflow-x: hidden;
+        position: fixed;
     }
 
     .details {
@@ -474,6 +491,7 @@
 
     .product-container {
         flex-direction: column-reverse;
+        margin-top: 200px;
     }
 
     .product-container div {
@@ -490,14 +508,32 @@
         margin: 0 10px;
     }
 
-    .info-container a {
-        padding-bottom: 30px;
-    }
-    
-
     .info-container {
         padding-bottom: 0;
     }
+
+    .info-container h2 {
+        width: 70%;
+        font-size: 25px;
+        margin-bottom: 0;
+    }
+
+    .info-container h2::after {
+        width: 200px;
+    }
+
+    .info-container p {
+        padding: 5px 10px;
+    }
+
+    .info-container a {
+        padding-bottom: 20px;
+    }
+
+    .info-container .btn-wrapper3 {
+        margin-bottom: 0;
+    }
+    
 }
 
 @media screen and (max-width: 480px) {

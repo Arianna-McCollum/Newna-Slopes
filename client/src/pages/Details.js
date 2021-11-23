@@ -5,7 +5,6 @@ import { useStoreContext } from "../utils/GlobalState";
 import { UPDATE_PRODUCTS, ADD_TO_CART, UPDATE_CART_QUANTITY, REMOVE_FROM_CART } from "../utils/actions";
 import { QUERY_PRODUCTS } from '../utils/queries';
 import spinner from '../assets/spinner.gif';
-import Cart from '../components/Cart';
 import ShopNav from '../components/ShopNav';
 
 function Detail() {
@@ -79,7 +78,6 @@ const removeFromCart = () => {
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
-      <Cart/>
     </div>
   );
 }
