@@ -197,8 +197,9 @@
 }
 
 @media screen and (max-width: 480px) {
-    body, html {
+    .root {
         overflow-x: hidden;
+        position: fixed;
     }
 
     .signup-hero h1 {

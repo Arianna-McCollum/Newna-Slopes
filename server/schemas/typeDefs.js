@@ -13,6 +13,7 @@ const typeDefs = gql`
   type Product {
     _id: ID
     name: String
+    image: String
     price: Float
     description: String
     inStockQuantity: Int
@@ -40,7 +41,6 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]
     products(category: ID, name: String): [Product]
     categories: [Category]
     user: User
@@ -53,6 +53,10 @@ const typeDefs = gql`
     addUser(firstName: String! lastName: String! email: String! password: String!): Auth
     login(email: String! password: String!): Auth
     addOrder(products: [ID!]): Order
+  }
+
+  type Checkout {
+    session: ID
   }
 `;
 
