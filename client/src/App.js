@@ -6,7 +6,6 @@ import Login from "./pages/Login";
 import Success from "./pages/Success";
 import Detail from "./pages/Details"
 import Footer from "./components/Footer";
-import "./css/home.css";
 import { Routes, Route } from "react-router-dom";
 import { StoreProvider } from "./utils/GlobalState";
 import {

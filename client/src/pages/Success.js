@@ -4,6 +4,7 @@ import { ADD_ORDER } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 import '../css/success.css'
 
+
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
 
