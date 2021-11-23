@@ -5,7 +5,6 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Detail from "./pages/Details"
 import Footer from "./components/Footer";
-import "./css/home.css";
 import { Routes, Route } from "react-router-dom";
 import { StoreProvider } from "./utils/GlobalState";
 import {
