@@ -62,6 +62,14 @@
   justify-content: space-between;
 }
 
+.flex-row p {
+  padding-right: 20px;
+}
+
+.flex-row p i {
+  padding: 0 10px;
+}
+
 .cart-closed {
   cursor: pointer;
   padding: 7px 25px;

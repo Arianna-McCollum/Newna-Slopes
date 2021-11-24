@@ -98,7 +98,7 @@ const Cart = () => {
                     Checkout
                   </button>
                 ) : (
-                  <p>Loading...</p>
+                  <p><i class="fas fa-spinner fa-spin"></i>Loading...</p>
                 )}
               </>
             ) : (

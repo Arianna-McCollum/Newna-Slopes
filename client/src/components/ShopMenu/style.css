@@ -163,12 +163,12 @@
 @media screen and (max-width: 980px) {
     .shop-hero {
         height: 25vh;
-        margin-top: 100px;
+        margin-top: 58px;
     }
 
     .shop-hero::before {
         height: 25vh;
-        margin-top: 100px;
+        margin-top: 58px;
     }
 
     .shop-hero h1 {
@@ -213,12 +213,12 @@
 
     .shop-hero {
         height: 35vh;
-        margin-top: 125px;
+        margin-top: 102px;
     }
 
     .shop-hero::before {
         height: 35vh;
-        margin-top: 125px;
+        margin-top: 102px;
     }
 
     .shop-page h2 {
