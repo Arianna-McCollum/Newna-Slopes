@@ -1,7 +1,8 @@
 import React from 'react';
+
+// Components
 import ShopNav from '../components/ShopNav';
 import ShopMenu from '../components/ShopMenu';
-import '../css/shop.css'
 
 
 function Shop() {
@@ -10,7 +11,6 @@ function Shop() {
         <ShopNav />
         <ShopMenu/>
     </div>
-    
   );
 }
 
