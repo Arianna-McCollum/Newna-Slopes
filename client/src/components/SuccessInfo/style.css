@@ -1,0 +1,91 @@
+.shop-page {
+    margin-top: 65px;
+  }
+  
+  .shop-hero {
+    height: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 68px;
+  }
+  
+  .shop-hero h1 {
+    color: var(--black);;  
+    font-size: 80px;
+    line-height: 0.9;
+    text-align: center;
+    font-family: 'Rock Salt', cursive;
+    position: relative;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .shop-hero::before {
+    content: "";
+    background-image: linear-gradient(
+        235deg,rgba(0,0,0,0) 10%, var(--primary-color) 150%), url(../../images/waxroombg.png);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    margin-top: 68px;
+    height: 25vw;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .2;
+  }
+  
+  .shop-hero h2 {
+    padding: 15px 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-weight: 100;
+    color: var(--black);
+  }
+
+  @media screen and (max-width: 980px) {
+    .shop-hero {
+        height: 45vh;
+        margin-top: 58px;
+    }
+
+    .shop-hero::before {
+        height: 45vh;
+        margin-top: 58px;
+    }
+
+    .shop-hero h1 {
+        font-size: 55px;
+    }
+
+    .shop-hero h2 {
+        font-size: 45px;
+        padding: 15px 70px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .shop-hero h1 {
+        font-size: 30px;
+    }
+
+    .shop-hero h2 {
+        font-size: 20px;
+        padding: 15px 30px;
+    }
+
+    .shop-hero {
+        height: 45vh;
+        margin-top: 102px;
+    }
+
+    .shop-hero::before {
+        height: 45vh;
+        margin-top: 102px;
+    }
+  }
