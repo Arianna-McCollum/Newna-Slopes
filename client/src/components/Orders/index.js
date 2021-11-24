@@ -19,21 +19,20 @@ function Order() {
       {user ? (
         <>
           <div className="order-hero">
-            
             <h1>Order History for <br/>{user.firstName} {user.lastName}</h1>
           </div>
           {user.orders.map((order) => (
             <div key={order._id} className="order">
-              <h3>Order Placed{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</h3>
+              <h2>Order Placed - {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</h2>
               <div className="flex-row">
                 {order.products.map(({ _id, image, name, price }, index) => (
-                  <div key={index} className="card px-1 py-1">
+                  <div key={index} className="product">
                     <Link to={`/products/${_id}`}>
                       <img
                         alt={name}
                         src={`/images/${image}`}
                       />
-                      <p>{name}</p>
+                      <h3>{name}</h3>
                     </Link>
                     <div>
                       <span>${price}</span>
