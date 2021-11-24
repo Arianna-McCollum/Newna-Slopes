@@ -1,28 +1,42 @@
-import React, {useEffect} from 'react';
-import {UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY} from '../../utils/actions';
-import { useQuery } from '@apollo/client';
-import { QUERY_CATEGORIES } from '../../utils/queries';
+import React, { useEffect } from "react";
+import {
+  UPDATE_CATEGORIES,
+  UPDATE_CURRENT_CATEGORY,
+} from "../../utils/actions";
+import { useQuery } from "@apollo/client";
+import { QUERY_CATEGORIES } from "../../utils/queries";
 import { useStoreContext } from "../../utils/GlobalState";
-import './style.css';
+import "./style.css";
+import { idbPromise } from "../../utils/helpers";
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
-  const { data: categoryData } = useQuery(QUERY_CATEGORIES);
-  const {categories} = state;
+  const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+  const { categories } = state;
 
-  useEffect(() =>{
-    if(categoryData){
+  useEffect(() => {
+    if (categoryData) {
       dispatch({
         type: UPDATE_CATEGORIES,
-        categories: categoryData.categories
+        categories: categoryData.categories,
+      });
+      categoryData.categories.forEach((category) => {
+        idbPromise("categories", "put", category);
+      });
+    } else if (!loading) {
+      idbPromise("categories", "get").then((categories) => {
+        dispatch({
+          type: UPDATE_CATEGORIES,
+          categories: categories,
+        });
       });
     }
   }, [categoryData, dispatch]);
 
-  const handleClick = id => {
+  const handleClick = (id) => {
     dispatch({
       type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id
+      currentCategory: id,
     });
   };
 
@@ -30,7 +44,7 @@ function CategoryMenu() {
     <div className="shop-left">
       {categories.map((item) => (
         <button
-          className = "product-btn"
+          className="product-btn"
           key={item._id}
           onClick={() => {
             handleClick(item._id);
