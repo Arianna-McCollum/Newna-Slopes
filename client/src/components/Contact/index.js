@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import Fade from 'react-reveal/Fade';
+import './style.css';
 
 function Contact() {
   const navigate = useNavigate();

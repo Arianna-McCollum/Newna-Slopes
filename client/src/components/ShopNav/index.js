@@ -2,6 +2,9 @@ import React from "react";
 import logo from "../../images/logos/logo.png";
 import { Link } from "react-scroll";
 import { useNavigate } from "react-router-dom";
+import './style.css';
+
+// Components
 import Auth from '../../utils/auth'
 import Cart from '../Cart/index'
 
