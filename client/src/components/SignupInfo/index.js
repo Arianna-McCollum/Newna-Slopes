@@ -6,22 +6,28 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
 
 function SignupInfo() {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: '', password: '', errors: []});
   const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName
-      }
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
+    const valid = await validate(formState);
 
+    if(!valid) {
+      console.log(formState.errors.length)
+      return
+    } else {
+      const mutationResponse = await addUser({
+        variables: {
+          email: formState.email,
+          password: formState.password,
+          firstName: formState.firstName,
+          lastName: formState.lastName
+        }
+      });
+      const token = mutationResponse.data.addUser.token;
+      Auth.login(token);
+    }
   };
 
   const handleChange = (event) => {
@@ -32,6 +38,39 @@ function SignupInfo() {
     })
     console.log(formState)
   };
+
+  const validate = async (formState) =>{
+    const { email, password, firstName, lastName } = formState;
+    const errors = []
+
+    if (!email){
+      console.log('email error')
+      errors.push({type: 'email', message: 'A valid email required.'})
+    }
+    if (!password || password.length < 5 ){
+      console.log('lpassword error')
+      errors.push({type: 'password', message: 'A password of 5 or more characters is required.'})
+    }
+    if (!firstName){
+      console.log('first name error')
+      errors.push({type: 'firstName', message: 'A valid first name is required.'})
+    }
+    if (!lastName){
+      console.log('last name error')
+      errors.push({type: 'lastName', message: 'A valid last name is required.'})
+    }
+
+    setFormState({
+      ...formState,
+      errors
+    })
+
+    if(errors.length > 0){
+      return false
+    } else {
+      return true
+    }
+  }
 
   const navigate = useNavigate();
   return (
@@ -44,6 +83,14 @@ function SignupInfo() {
           <div className="form-container">
             <form className="signup-form" id="signup-form" onSubmit={handleFormSubmit}>
               <h2>Sign up today!</h2>
+              {formState.errors.length > 0 ?(
+                <div className="error-div">
+                  <h4>Sign up failed!</h4>
+                  {formState.errors.map(error => (
+                  <p>{error.message}</p>
+                  ))}
+                </div>
+              ):(<div></div>)}
               <input
                 className="field"
                 name="firstName"
@@ -96,5 +143,6 @@ function SignupInfo() {
     </div>
   );
 }
+
 
 export default SignupInfo;
