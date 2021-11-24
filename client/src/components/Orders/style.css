@@ -167,12 +167,12 @@
 @media screen and (max-width: 980px) {
     .order-hero {
         height: 25vh;
-        margin-top: 100px;
+        margin-top: 58px;
     }
 
     .order-hero::before {
         height: 25vh;
-        margin-top: 100px;
+        margin-top: 58px;
     }
 
     .order-hero h1 {
@@ -208,17 +208,24 @@
 
 @media screen and (max-width: 480px) {
     .order-hero h1 {
-        font-size: 35px;
+        font-size: 30px;
+        padding: 0 10px;
     }
 
     .order-hero {
         height: 35vh;
-        margin-top: 125px;
+        margin-top: 102px;
     }
 
     .order-hero::before {
         height: 35vh;
-        margin-top: 125px;
+        margin-top: 102px;
+    }
+
+    .order .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
     .order h2 {

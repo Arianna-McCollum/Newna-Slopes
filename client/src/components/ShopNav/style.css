@@ -57,6 +57,7 @@
 
     .navbar {
         display: flex;
+        padding: 10px 0;
     }
 
     .nav-wrap {
@@ -74,22 +75,25 @@
 
 @media screen and (max-width: 480px){
     
-    nav .navbar {
-        padding: 0;
+    .navbar {
+        padding: 5px 0;
     }
 
     .shop-link-wrap {
         width: 100%;
         justify-content: center;
+        align-items: center;
     }
 
     .shop-link-wrap ul {
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0;
     }
 
     .shop-link-wrap ul li a {
-        padding: 5px 10px;
+        padding: 5px 20px;
+        font-size: 14px;
     }
 }
