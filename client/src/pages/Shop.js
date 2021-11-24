@@ -9,7 +9,7 @@ function Shop() {
   return (
     <div>
         <ShopNav />
-        <ShopMenu/>
+        <ShopMenu />
     </div>
   );
 }

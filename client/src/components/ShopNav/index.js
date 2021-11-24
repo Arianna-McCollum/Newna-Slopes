@@ -10,11 +10,19 @@ import Cart from '../Cart/index'
 
 function ShopNav() {
   const navigate = useNavigate();
-
+  console.log(window.location.pathname )
   const userNav = () => {
     if (Auth.loggedIn()) {
       return (
           <ul>
+            <li>
+              <Link
+                onClick={() => navigate("/orderhistory")}
+                className="center"
+              >
+                Orders
+              </Link>
+            </li>
             <li>
               <Link
                 onClick={()=> Auth.logout()}
