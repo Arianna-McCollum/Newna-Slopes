@@ -41,6 +41,10 @@
         padding: 90px 100px;
         text-align: center;
     }
+
+    .ourstory img {
+        max-height: 180px;
+    }
 }
 
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
