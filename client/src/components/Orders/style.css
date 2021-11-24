@@ -1,5 +1,11 @@
 
 /* Hero */
+.order {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
 
 .order-page {
     margin-top: 65px;
@@ -39,7 +45,8 @@
     opacity: .2;
 }
 
-h2 {
+.order h2 {
+    width: 70%;
     border-bottom: 2px solid black;
     padding: 30px 150px;
     text-align: center;
@@ -52,32 +59,15 @@ h2 {
 
 /* Shop section */
 
-.shop-container {
-    height: auto;
-    padding: 10px 50px;
-}
-
-.shop-container h1 {
-    font-weight: 500;
-    font-size: 30px;
-    font-family: 'Rock Salt', cursive;
-    padding: 0 40px;
-    text-align: left;
-    border-bottom: 2px var(--tertiary-color) solid;
-}
-
 .shop-wrap {
     display: flex;
     flex-direction: row;
 }
 
-.shop-left {
-    flex: 1;
-    height: 50vh;
+.container {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: center;
 }
 
 .product-btn {
@@ -108,6 +98,13 @@ h2 {
 
 .product {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+.product {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -128,7 +125,7 @@ h2 {
 
 }
 
-h3 {
+.product h3 {
     padding: 5px 0;
     margin-top: 10px
 }
@@ -136,6 +133,12 @@ h3 {
 .product h4 {
     font-style: italic;
     font-size: 15px;
+}
+
+.back-btn {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
 
 .btn-wrapper {
@@ -173,20 +176,16 @@ h3 {
     }
 
     .order-hero h1 {
-        font-size: 65px;
+        font-size: 45px;
     }
 
-    h2 {
+    .order h2 {
         padding: 30px 50px;
     }
 
 
     .product-btn {
         width: 100%;
-    }
-
-    .shop-container {
-        padding: 10px 20px;
     }
 
     .shop-wrap {
@@ -209,7 +208,7 @@ h3 {
 
 @media screen and (max-width: 480px) {
     .order-hero h1 {
-        font-size: 40px;
+        font-size: 35px;
     }
 
     .order-hero {
@@ -222,15 +221,9 @@ h3 {
         margin-top: 125px;
     }
 
-    h2 {
+    .order h2 {
         padding: 30px 15px;
         font-size: 20px;
-    }
-
-    .shop-container h1 {
-        font-size: 25px;
-        padding: 0 20px;
-        text-align: center;
     }
 
     .shop-left {

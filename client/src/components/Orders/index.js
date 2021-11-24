@@ -24,7 +24,7 @@ function Order() {
           {user.orders.map((order) => (
             <div key={order._id} className="order">
               <h2>Order Placed - {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</h2>
-              <div className="flex-row">
+              <div className="container">
                 {order.products.map(({ _id, image, name, price }, index) => (
                   <div key={index} className="product">
                     <Link to={`/products/${_id}`}>
@@ -32,11 +32,10 @@ function Order() {
                         alt={name}
                         src={`/images/${image}`}
                       />
-                      <h3>{name}</h3>
+                      
                     </Link>
-                    <div>
-                      <span>${price}</span>
-                    </div>
+                    <h3>{name}</h3>
+                    <h4>${price}</h4>
                   </div>
                 ))}
               </div>
@@ -44,9 +43,11 @@ function Order() {
           ))}
         </>
       ) : null}
-    <Link to="/shop">
-        ← Back to Products
-    </Link>
+    <div className="back-btn">
+      <Link to="/shop">
+          ← Back to Products
+      </Link>
+    </div>
     </div>
   )
 };
