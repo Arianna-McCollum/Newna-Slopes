@@ -21,6 +21,9 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in')
     },
+    users: async (parent, args, context) => {
+      return User.find();
+    },
     products: async (parent, { category, name }) => {
       const params = {};
 

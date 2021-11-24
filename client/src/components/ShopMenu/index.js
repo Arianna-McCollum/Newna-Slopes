@@ -4,45 +4,57 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import spinner from "../../assets/spinner.gif";
-import './style.css';
+import "./style.css";
+import { idbPromise } from "../../utils/helpers";
 
 // components
 import CategoryMenu from "../CategoryMenu";
 import ProductItem from "../ProductItem";
 
-
 function ShopMenu() {
-    const [state, dispatch] = useStoreContext();
-    console.log(state)
+  const [state, dispatch] = useStoreContext();
+  console.log(state);
 
-    const { currentCategory } = state;
-    
-    const { loading, data } = useQuery(QUERY_PRODUCTS);
-    console.log(data)
+  const { currentCategory } = state;
 
-    useEffect(() => {
-        if(data){
-            dispatch({
-                type: UPDATE_PRODUCTS,
-                products: data.products
-            });
-        }
-    }, [data, loading, dispatch])
+  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  console.log(data);
 
-    function filterProducts(){
-        if(!currentCategory){
-            return state.products;
-        }
-
-        return state.products.filter(product => product.category._id === currentCategory);
+  useEffect(() => {
+    if (data) {
+      dispatch({
+        type: UPDATE_PRODUCTS,
+        products: data.products,
+      });
+      data.products.forEach((product) => {
+        idbPromise("products", "put", product);
+      });
+    } else if (!loading) {
+      idbPromise("products", "get").then((products) => {
+        dispatch({
+          type: UPDATE_PRODUCTS,
+          products: products,
+        });
+      });
     }
+  }, [data, loading, dispatch]);
+
+  function filterProducts() {
+    if (!currentCategory) {
+      return state.products;
+    }
+
+    return state.products.filter(
+      (product) => product.category._id === currentCategory
+    );
+  }
 
   return (
     <div className="shop-page">
       <div className="shop-hero">
         <h1>The Wax Room</h1>
       </div>
-      
+
       <h2>
         Get your favorite gear at the best price! Whether you are experienced or
         new to the slopes, browse our shop below to find a product that will
@@ -51,23 +63,23 @@ function ShopMenu() {
       <div className="shop-container">
         <h1>Products</h1>
         <div className="shop-wrap">
-            <CategoryMenu />
+          <CategoryMenu />
           {state.products.length ? (
             <div className="shop-right">
-                {filterProducts().map(product => (
-                    <ProductItem 
-                        key = {product._id}
-                        _id = {product._id}
-                        image={product.image}
-                        name={product.name}
-                        price={product.price}
-                    />
-                ))}
+              {filterProducts().map((product) => (
+                <ProductItem
+                  key={product._id}
+                  _id={product._id}
+                  image={product.image}
+                  name={product.name}
+                  price={product.price}
+                />
+              ))}
             </div>
           ) : (
             <h3>No products found</h3>
           )}
-            {loading ? <img src={spinner} alt="loading" /> : null}
+          {loading ? <img src={spinner} alt="loading" /> : null}
         </div>
       </div>
     </div>

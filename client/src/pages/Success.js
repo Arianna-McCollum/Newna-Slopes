@@ -23,7 +23,7 @@ function Success() {
       }
         
       setTimeout(() => {
-        window.location.assign('/shop');
+        window.location.assign('/#/shop');
       }, 5000);
     }
 
