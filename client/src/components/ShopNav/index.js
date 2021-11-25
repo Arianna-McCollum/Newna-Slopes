@@ -17,10 +17,10 @@ function ShopNav() {
           <ul>
             <li>
               <Link
-                onClick={() => navigate("/orderhistory")}
+                onClick={() => navigate("/account")}
                 className="center"
               >
-                Orders
+                Account
               </Link>
             </li>
             <li>

@@ -29,19 +29,25 @@ const userSchema = new Schema({
 });
 
 // set up pre-save middleware to create password
-userSchema.pre('save', async function(next) {
-  if (this.isNew || this.isModified('password')) {
+// userSchema.pre('save', async function(next) {
+//   if (this.isNew || this.isModified('password')) {
+//     const saltRounds = 10;
+//     this.password = await bcrypt.hash(this.password, saltRounds);
+//   }
+
+//   next();
+// });
+
+// encrypts new password when updated
+userSchema.pre('findOneAndUpdate', async function(next) {
+    if (this._update.password){
     const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
-  }
+    this._update.password = await bcrypt.hash(this._update.password, saltRounds);
+    };
 
   next();
 });
 
-// compare the incoming password with the hashed password
-userSchema.methods.isCorrectPassword = async function(password) {
-  return await bcrypt.compare(password, this.password);
-};
 
 const User = mongoose.model('User', userSchema);
 

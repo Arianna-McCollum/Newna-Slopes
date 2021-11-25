@@ -1,4 +1,4 @@
-import { gql } from 'graphql-tag';
+import { gql } from "graphql-tag";
 
 export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
@@ -12,24 +12,24 @@ export const LOGIN = gql`
 `;
 
 export const ADD_ORDER = gql`
-mutation Mutation($products: [ID!]) {
-  addOrder(products: $products) {
-    _id
-    purchaseDate
-    products {
+  mutation Mutation($products: [ID!]) {
+    addOrder(products: $products) {
       _id
-      name
-      image
-      price
-      description
-      inStockQuantity
-      category {
-        name
+      purchaseDate
+      products {
         _id
+        name
+        image
+        price
+        description
+        inStockQuantity
+        category {
+          name
+          _id
+        }
       }
     }
   }
-}
 `;
 
 export const ADD_USER = gql`
@@ -49,6 +49,29 @@ export const ADD_USER = gql`
       user {
         _id
       }
+    }
+  }
+`;
+
+export const REMOVE_USER = gql`
+  mutation Mutation {
+    deleteUser {
+      email
+      _id
+      firstName
+      lastName
+      password
+    }
+  }
+`;
+
+export const CHANGE_PASSWORD = gql`
+  mutation Mutation($password: String!) {
+    updateUser(password: $password) {
+      _id
+      firstName
+      lastName
+      email
     }
   }
 `;

@@ -48,7 +48,7 @@ function SignupInfo() {
       errors.push({type: 'email', message: 'A valid email required.'})
     }
     if (!password || password.length < 5 ){
-      console.log('lpassword error')
+      console.log('password error')
       errors.push({type: 'password', message: 'A password of 5 or more characters is required.'})
     }
     if (!firstName){

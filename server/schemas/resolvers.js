@@ -1,25 +1,24 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 const { User, Product, Order, Category } = require("../models");
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
   Query: {
-    user: async(parent, args, context) => {
-      if (context.user){
-        const user = await User.findById(context.user._id)
-        .populate({
-          path: 'orders.products',
-          populate: 'category'
+    user: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: "orders.products",
+          populate: "category",
         });
 
         // sorts orders by date created
-        user.orders.sort((a,b) => b.purchaseData - a.purchaseData)
+        user.orders.sort((a, b) => b.purchaseData - a.purchaseData);
 
-        return user
+        return user;
       }
 
-      throw new AuthenticationError('Not logged in')
+      throw new AuthenticationError("Not logged in");
     },
     users: async (parent, args, context) => {
       return User.find();
@@ -28,20 +27,19 @@ const resolvers = {
       const params = {};
 
       if (category) {
-        params.category = category
+        params.category = category;
       }
 
       if (name) {
         params.name = {
-          $regex: name
-        }
+          $regex: name,
+        };
       }
 
-      return Product.find()
-      .populate("category");
+      return Product.find().populate("category");
     },
-    product: async (parent, {_id}) => {
-      return await Product.findById(_id).populate("category")
+    product: async (parent, { _id }) => {
+      return await Product.findById(_id).populate("category");
     },
     categories: async () => {
       return Category.find();
@@ -49,51 +47,51 @@ const resolvers = {
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
-          populate: 'category'
+          path: "orders.products",
+          populate: "category",
         });
 
         return user.orders.id(_id);
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError("Not logged in");
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ products: args.products });
       const line_items = [];
 
-      const { products } = await order.populate('products').execPopulate();
+      const { products } = await order.populate("products").execPopulate();
 
       for (let i = 0; i < products.length; i++) {
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
-          images: [`${url}/images/${products[i].image}`]
+          images: [`${url}/images/${products[i].image}`],
         });
 
         const price = await stripe.prices.create({
           product: product.id,
           unit_amount: products[i].price * 100,
-          currency: 'usd',
+          currency: "usd",
         });
 
         line_items.push({
           price: price.id,
-          quantity: 1
+          quantity: 1,
         });
       }
 
       const session = await stripe.checkout.sessions.create({
-        payment_method_types: ['card'],
+        payment_method_types: ["card"],
         line_items,
-        mode: 'payment',
+        mode: "payment",
         success_url: `${url}/#/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${url}/`
+        cancel_url: `${url}/`,
       });
 
       return { session: session.id };
-    }
+    },
   },
 
   Mutation: {
@@ -103,6 +101,21 @@ const resolvers = {
 
       return { user, token };
     },
+    updateUser: async (parent, { password }, context) => {
+      if(context.user){
+        const user = await User.findByIdAndUpdate(context.user._id, {password: password}, { new: true })
+      }
+      return
+    },
+    deleteUser: async( parent, args, context ) => {
+      if(context.user){
+        console.log(context.user)
+        const user = await User.findByIdAndDelete(context.user._id)
+        console.log(user)
+      }
+      return
+    }
+    ,
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
       console.log(user);
@@ -130,7 +143,7 @@ const resolvers = {
 
         return order;
       }
-      throw new AuthenticationError('Not logged in')
+      throw new AuthenticationError("Not logged in");
     },
   },
 };
